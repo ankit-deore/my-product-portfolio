@@ -1,0 +1,2673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ankit Deore - Product Manager & FinTech Architect</title>
+  <meta name="description" content="Product Manager with 45 months in digital banking. MBA @ IIM Lucknow."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Caveat:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ═══════════════════════════════════════
+       ROOT VARIABLES
+    ═══════════════════════════════════════ */
+    :root {
+      --bg:        #F7F4EF;
+      --bg2:       #EEEAE3;
+      --white:     #FFFFFF;
+      --teal:      #2A9D8F;
+      --teal-light:#3DB8A8;
+      --teal-pale: rgba(42,157,143,0.10);
+      --teal-pale2:rgba(42,157,143,0.06);
+      --ink:       #1C1C1C;
+      --ink2:      #555550;
+      --ink3:      #9A9990;
+      --border:    rgba(28,28,28,0.10);
+      --border2:   rgba(28,28,28,0.06);
+      --shadow:    0 2px 20px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 40px rgba(0,0,0,0.10);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    /* ═══════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    ::selection { background: rgba(42,157,143,0.2); }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 99px; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ═══════════════════════════════════════
+       NAV - dark pill, centered, fixed
+    ═══════════════════════════════════════ */
+    nav {
+      position: fixed; top: 20px; left: 50%; z-index: 999;
+      transform: translateX(-50%);
+      background: #1C1C1C;
+      border-radius: 99px;
+      padding: 10px 28px;
+      display: flex; align-items: center; gap: 36px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      transition: box-shadow .3s;
+      white-space: nowrap;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: .98rem;
+      color: #fff; letter-spacing: -.01em;
+    }
+    .nav-logo span { color: var(--teal); }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a {
+      font-size: .84rem; font-weight: 500; color: rgba(255,255,255,.6);
+      padding: 6px 14px; border-radius: 99px;
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+    .nav-resume {
+      color: var(--teal) !important; font-weight: 600 !important;
+      border: 1px solid rgba(42,157,143,.4) !important;
+    }
+    .nav-resume:hover { background: rgba(42,157,143,.12) !important; }
+
+    /* ═══════════════════════════════════════
+       SECTION LAYOUT
+    ═══════════════════════════════════════ */
+    section { position: relative; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 48px; }
+    .section-pad { padding: 120px 0; }
+
+    /* Section label (small teal tag) */
+    .s-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Inter', sans-serif; font-size: .78rem;
+      font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 12px;
+    }
+    .s-eyebrow::after { content:''; width: 32px; height: 1.5px; background: var(--teal); }
+
+    /* Big ghost section title */
+    .s-ghost {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 800; text-transform: uppercase;
+      color: rgba(28,28,28,0.06); line-height: 1;
+      letter-spacing: -.02em; margin-bottom: -20px;
+      user-select: none; pointer-events: none;
+    }
+    .s-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; letter-spacing: -.03em;
+      color: var(--ink); line-height: 1.1;
+    }
+
+    /* ═══════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════ */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.vis { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: .1s; }
+    .reveal-d2 { transition-delay: .2s; }
+    .reveal-d3 { transition-delay: .3s; }
+    .reveal-d4 { transition-delay: .4s; }
+
+    /* ═══════════════════════════════════════
+       ① HERO - Landing Banner
+    ═══════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      background: var(--bg);
+      background-image: radial-gradient(circle, rgba(28,28,28,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      display: flex; align-items: center;
+      padding: 100px 48px 60px;
+      overflow: hidden; position: relative;
+    }
+    /* 2-column layout: text | photo */
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px; align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    /* ── Left: Text ── */
+    .hero-left { position: relative; }
+    .avail-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+      flex-shrink: 0;
+      animation: pulse-green 2s ease-in-out infinite;
+    }
+    @keyframes pulse-green {
+      0%,100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
+      50%      { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+    }
+    .hero-h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.6rem, 4.5vw, 4.6rem);
+      font-weight: 800; letter-spacing: -.04em;
+      text-transform: uppercase; line-height: 1.05;
+      color: var(--ink); margin-bottom: 14px;
+      animation: fadeUp .7s .1s ease both;
+    }
+    .hero-h1 .teal { color: var(--teal); }
+    .hero-tagline {
+      font-family: 'Caveat', cursive;
+      font-size: 1.75rem; color: var(--ink2); line-height: 1.4;
+      margin-bottom: 8px;
+      animation: fadeUp .7s .2s ease both;
+    }
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem; font-weight: 400;
+      color: var(--ink2); line-height: 1.6;
+      letter-spacing: .01em;
+      white-space: nowrap; margin-bottom: 28px;
+      animation: fadeUp .7s .25s ease both;
+    }
+    .hero-desc {
+      font-size: .88rem; color: var(--ink3); line-height: 1.65;
+      margin-bottom: 28px;
+      animation: fadeUp .7s .25s ease both;
+    }
+    /* ── Hero bottom boxes ── */
+    .hero-boxes {
+      display: flex; flex-direction: column; gap: 10px;
+      animation: fadeUp .7s .3s ease both;
+    }
+    .hbb-box {
+      display: inline-flex; align-items: center;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 10px 14px;
+      box-shadow: var(--shadow);
+      gap: 0;
+      align-self: flex-start;
+    }
+    .hbb-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; font-weight: 500;
+      padding: 7px 14px; border-radius: 10px;
+      white-space: nowrap;
+    }
+    .hbb-chip.avail {
+      background: rgba(34,197,94,0.08);
+      color: #16a34a;
+      border: 1px solid rgba(34,197,94,0.2);
+    }
+    .hbb-chip.tag {
+      background: var(--teal-pale);
+      border: 1px solid rgba(42,157,143,0.2);
+      color: var(--teal);
+    }
+    .hbb-divider-v {
+      width: 1px; height: 24px; background: var(--border);
+      margin: 0 10px; flex-shrink: 0;
+    }
+    .hbb-spacer { flex: 1; min-width: 10px; }
+    .hbb-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: .85rem; font-weight: 600;
+      padding: 9px 20px; border-radius: 10px;
+      cursor: pointer; text-decoration: none;
+      transition: transform .2s, box-shadow .2s, background .2s;
+      white-space: nowrap;
+    }
+    .hbb-btn:hover { transform: translateY(-1px); }
+    .hbb-btn.primary {
+      background: var(--teal); color: #fff;
+      box-shadow: 0 3px 14px rgba(42,157,143,0.28);
+    }
+    .hbb-btn.primary:hover { box-shadow: 0 6px 22px rgba(42,157,143,0.42); }
+    .hbb-btn.secondary {
+      background: var(--bg); color: var(--ink);
+      border: 1px solid var(--border);
+    }
+    .hbb-btn.secondary:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-pale); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 99px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600; font-size: .85rem;
+      cursor: pointer; border: none;
+      transition: transform .2s, box-shadow .25s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-teal {
+      background: var(--teal); color: #fff;
+      box-shadow: 0 4px 18px rgba(42,157,143,0.3);
+    }
+    .btn-teal:hover { box-shadow: 0 8px 28px rgba(42,157,143,0.45); }
+    .btn-outline {
+      background: var(--white); color: var(--ink);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Hero floating image objects ── */
+    .hero-obj {
+      position: absolute; z-index: 0;
+      pointer-events: none; user-select: none;
+      animation: floatObj var(--dur,4s) var(--delay,0s) ease-in-out infinite;
+    }
+    @keyframes floatObj {
+      0%,100% { transform: translateY(0) rotate(var(--r,0deg)); }
+      50%      { transform: translateY(-12px) rotate(calc(var(--r,0deg) + 3deg)); }
+    }
+    .hero-obj img {
+      border-radius: 14px;
+      object-fit: cover; display: block;
+      mix-blend-mode: multiply;
+    }
+    /* Floating objects - spread across full hero, away from centre ribbon */
+    .ho-football { top: 3%;    left: 0%;    --r: -6deg;  --dur:3.8s; --delay:0s;   }
+    .ho-mountain { bottom: 5%; left: 0%;    --r:  4deg;  --dur:5.0s; --delay:.5s;  }
+    .ho-surfing  { top: 3%;    right: 0%;   --r:  7deg;  --dur:4.2s; --delay:.3s;  }
+    .ho-gym      { bottom: 5%; right: 0%;   --r: -5deg;  --dur:4.8s; --delay:1.0s; }
+    .ho-tea      { top: 3%;    left: 22%;   --r:-10deg;  --dur:3.5s; --delay:.7s;  }
+    .ho-poker    { top: 52%;   left: 1%;    --r:  6deg;  --dur:4.5s; --delay:1.2s; }
+    .ho-iim      { top: 3%;    right: 20%;  --r: -3deg;  --dur:5.5s; --delay:.9s;  }
+    .ho-chelsea  { bottom: 5%; right: 20%;  --r: -8deg;  --dur:4.1s; --delay:.4s;  }
+    .ho-ticket   { bottom: 5%; left: 25%;   --r: -4deg;  --dur:4.8s; --delay:.6s;  }
+    .ho-ps       { top: 36%;   right: 1%;   --r:  5deg;  --dur:4.3s; --delay:.8s;  }
+    .ho-macbook  { bottom: 5%; left: 46%;   --r: -2deg;  --dur:5.2s; --delay:1.4s; }
+
+    /* ── Middle: Hero photo ── */
+    .hero-photo-col {
+      display: flex; align-items: center; justify-content: center;
+      animation: fadeUp .8s .35s ease both;
+    }
+    .hero-photo-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 10px 10px 32px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.12);
+      transform: rotate(-2deg);
+      border: 1px solid var(--border);
+      width: 100%;
+    }
+    /* Natural aspect ratio - no crop */
+    .hero-photo-card img {
+      width: 100%;
+      object-fit: contain;
+      border-radius: 14px;
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════
+       ② CASE STUDIES - Priya-style
+    ═══════════════════════════════════════ */
+    #case-studies {
+      background: var(--white);
+      padding: 120px 0 80px;
+    }
+    #case-studies .wrap { max-width: 1440px; }
+
+    /* ── Case study appear animation ── */
+    @keyframes cs-slide-in {
+      from { opacity: 0; transform: translateY(56px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0)    scale(1);    }
+    }
+    .cs-entry.reveal { opacity: 0; transform: translateY(56px) scale(0.98); transition: none; }
+    .cs-entry.reveal.vis {
+      animation: cs-slide-in .72s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .cs-entry.reveal.vis.reveal-d1 { animation-delay: .12s; }
+    .cs-entry.reveal.vis.reveal-d2 { animation-delay: .24s; }
+
+    /* Stacked vertical layout */
+    .cs-entries {
+      margin-top: 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .cs-entry {
+      display: grid;
+      grid-template-columns: 46% 1fr;
+      background: var(--white);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s, border-color .35s;
+    }
+    .cs-entry:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(42,157,143,0.22);
+    }
+    .cs-entry.reverse { direction: ltr; }
+
+    /* Image — left side, landscape, height drives the tile */
+    .cs-img-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      flex-shrink: 0; overflow: hidden;
+      position: relative;
+    }
+    .cs-preview {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    /* Hide image overlay — title lives in content area */
+    .cs-preview-inner { display: none; }
+    .cs-preview-tag   { display: none; }
+
+    .cs-section-title {
+      font-family: 'Syne', sans-serif !important;
+      font-weight: 700; letter-spacing: -.03em;
+    }
+    /* Apply Inter to all tile and modal content */
+    .cs-entry *,
+    .modal-box * {
+      font-family: 'Inter', sans-serif; font-optical-sizing: auto;
+    }
+
+    /* Text — right side */
+    .cs-text {
+      padding: 36px 44px 36px 40px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative;
+      min-width: 0; /* prevent grid blowout with nowrap content */
+      overflow: hidden;
+    }
+    .cs-logo {
+      position: absolute; top: 28px; right: 28px;
+      width: 44px; height: 44px;
+      object-fit: contain; border-radius: 10px;
+      mix-blend-mode: multiply;
+    }
+    /* Category tag */
+    .cs-num {
+      display: block;
+      font-size: .72rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 10px;
+    }
+    /* Title — Inter Display, single line */
+    .cs-title-main {
+      display: block;
+      font-family: 'Inter', sans-serif !important;
+      font-optical-sizing: auto;
+      font-size: clamp(1.05rem, 1.45vw, 1.5rem);
+      font-weight: 700; color: var(--ink);
+      letter-spacing: -.02em; line-height: 1.22;
+      margin-bottom: 10px; padding-right: 52px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .cs-subtitle {
+      font-size: .93rem; color: var(--ink2); line-height: 1.65;
+      margin-bottom: 20px;
+      white-space: normal;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .cs-impact-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--ink3);
+      margin-bottom: 10px;
+    }
+    .cs-impact-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .cs-impact-list li {
+      font-size: .91rem; color: var(--ink2);
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+    }
+    .cs-impact-list li::before {
+      content: '→'; color: var(--teal); font-weight: 600; flex-shrink: 0;
+    }
+    .cs-read-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: auto; padding-top: 20px;
+      font-size: .9rem; font-weight: 600;
+      color: var(--teal); border-bottom: 1.5px solid rgba(42,157,143,0.3);
+      padding-bottom: 2px; align-self: flex-start;
+      transition: gap .2s, border-color .2s;
+    }
+    .cs-entry:hover .cs-read-more { gap: 10px; border-color: var(--teal); }
+
+    /* ═══════════════════════════════════════
+       ③ PHILOSOPHY - 3 cards
+    ═══════════════════════════════════════ */
+    #philosophy {
+      background: var(--bg);
+      padding: 120px 0;
+    }
+    #philosophy .wrap { max-width: 1360px; }
+    .phi-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 20px; margin-top: 52px;
+    }
+    .phi-card {
+      background: var(--white);
+      border: 1px solid rgba(42,157,143,0.15);
+      border-radius: 24px; padding: 40px 32px 36px;
+      transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s, border-color .35s;
+      position: relative; overflow: hidden;
+    }
+    /* Always-visible teal gradient top bar */
+    .phi-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 100%);
+      border-radius: 4px 4px 0 0;
+    }
+    /* Ghost number watermark */
+    .phi-card::after {
+      content: attr(data-num);
+      position: absolute; right: 24px; top: 10px;
+      font-family: 'Syne', sans-serif; font-size: 5.5rem; font-weight: 800;
+      color: var(--ink); opacity: 0.045; line-height: 1;
+      pointer-events: none; user-select: none; letter-spacing: -.04em;
+    }
+    /* Subtle teal wash in top-left corner */
+    .phi-card-bg-wash {
+      position: absolute; top: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(42,157,143,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .phi-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 28px 60px rgba(42,157,143,0.14), 0 8px 24px rgba(0,0,0,0.07);
+      border-color: rgba(42,157,143,0.35);
+    }
+    .phi-num { display: none; }
+    .phi-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, rgba(42,157,143,0.12) 0%, rgba(42,157,143,0.06) 100%);
+      border: 1px solid rgba(42,157,143,0.2);
+      border-radius: 15px; font-size: 1.35rem;
+      margin-bottom: 22px;
+      transition: transform .3s, background .3s;
+    }
+    .phi-card:hover .phi-icon {
+      transform: scale(1.08) rotate(-4deg);
+      background: linear-gradient(135deg, rgba(42,157,143,0.18) 0%, rgba(42,157,143,0.08) 100%);
+    }
+    .phi-title {
+      font-family: 'Inter', sans-serif;
+      font-size: .97rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 14px; line-height: 1.35;
+      font-variation-settings: 'opsz' 32;
+      white-space: nowrap;
+    }
+    .phi-text { font-size: .94rem; color: var(--ink2); line-height: 1.88; text-align: justify; }
+    .phi-text em { color: var(--teal); font-style: normal; font-weight: 600; }
+
+    /* ═══════════════════════════════════════
+       ④ JOURNEY - Horizontal Alternating Timeline
+    ═══════════════════════════════════════ */
+    #journey {
+      background: var(--bg2);
+      padding: 120px 0 100px;
+    }
+    #journey .tl-outer {
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      width: 100vw;
+    }
+    .tl-outer {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .tl-outer::-webkit-scrollbar { display: none; }
+
+    /* Track: flex row, items start at top so we can control zone heights */
+    .tl-track {
+      display: flex;
+      align-items: flex-start;
+      padding: 0 16px;
+      min-width: max-content;
+      position: relative;
+    }
+
+    /* Horizontal line sits at exactly the dot center (top-zone 250px + half dot 20px = 270px) */
+    .tl-track::before {
+      content: '';
+      position: absolute;
+      top: 325px;
+      left: 16px; right: 16px;
+      height: 2px;
+      /* faded past (left) → bright present (right) */
+      background: linear-gradient(90deg, var(--teal) 0%, rgba(42,157,143,0.12) 100%);
+      z-index: 0;
+    }
+
+    /* Each node: three fixed zones stacked vertically */
+    .tl-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 450px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* TOP ZONE: 250px — card appears here for "above" nodes */
+    .tl-top-zone {
+      height: 305px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end; /* content pushed down toward dot */
+    }
+
+    /* DOT sits directly between top and bottom zones */
+    .tl-dot {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .82rem;
+    }
+    .tl-dot.edu {
+      background: var(--white);
+      border: 2.5px solid var(--teal);
+      box-shadow: 0 0 0 5px rgba(42,157,143,0.08), 0 2px 14px rgba(42,157,143,0.14);
+    }
+    .tl-dot.work {
+      background: var(--teal);
+      color: #fff;
+      box-shadow: 0 0 0 5px rgba(42,157,143,0.12), 0 2px 14px rgba(42,157,143,0.24);
+    }
+    .tl-dot.current {
+      background: var(--teal);
+      color: #fff;
+      box-shadow: 0 0 0 5px rgba(42,157,143,0.18);
+      animation: tl-pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes tl-pulse {
+      0%,100% { box-shadow: 0 0 0 5px rgba(42,157,143,0.18), 0 2px 14px rgba(42,157,143,0.22); }
+      50%      { box-shadow: 0 0 0 14px rgba(42,157,143,0), 0 2px 10px rgba(42,157,143,0.08); }
+    }
+
+    /* Year label — always just below the dot */
+    .tl-year {
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-top: 8px;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    /* BOTTOM ZONE: 250px — card appears here for "below" nodes */
+    .tl-bot-zone {
+      height: 305px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* content pushed up toward dot */
+    }
+
+    /* Stem connecting dot to card */
+    .tl-stem {
+      width: 1.5px; height: 26px;
+      flex-shrink: 0;
+    }
+    /* "above" nodes: stem at bottom of top-zone → flows DOWN toward dot */
+    .tl-above .tl-top-zone .tl-stem {
+      background: linear-gradient(to bottom, rgba(42,157,143,0.1), var(--teal));
+    }
+    /* "below" nodes: stem at top of bot-zone → flows DOWN away from dot */
+    .tl-below .tl-bot-zone .tl-stem {
+      background: linear-gradient(to bottom, var(--teal), rgba(42,157,143,0.1));
+    }
+
+    /* Card: uniform size, flex column so badge stays at bottom */
+    .tl-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 20px 18px;
+      width: 414px;
+      height: 255px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      transition: transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s, border-color .28s;
+    }
+    .tl-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(42,157,143,0.28);
+    }
+    /* Flip hover direction for above-cards */
+    .tl-above .tl-card:hover { transform: translateY(4px); }
+
+    .tl-type {
+      font-size: .61rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 7px;
+      display: flex; align-items: center; gap: 5px;
+      flex-shrink: 0;
+    }
+    .tl-type-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%; background: var(--teal); flex-shrink: 0;
+    }
+    .tl-org-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+    .tl-org-text { flex: 1; min-width: 0; }
+    .tl-logo {
+      width: 38px; height: 38px;
+      object-fit: contain;
+      border-radius: 9px;
+      background: var(--bg2);
+      padding: 4px;
+      display: block;
+      flex-shrink: 0;
+    }
+    .tl-org {
+      font-family: 'Syne', sans-serif;
+      font-size: .97rem; font-weight: 700;
+      color: var(--ink); line-height: 1.25; margin-bottom: 2px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .tl-role {
+      font-size: .94rem; font-weight: 700; color: var(--ink2);
+      line-height: 1.5; margin-bottom: 0;
+      display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .tl-bullets {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 5px; flex: 1;
+    }
+    .tl-bullets li {
+      font-size: .94rem; color: var(--ink3); line-height: 1.5;
+      display: flex; align-items: flex-start; gap: 5px;
+    }
+    .tl-bullets li::before {
+      content: '→'; color: var(--teal); font-weight: 700;
+      flex-shrink: 0; font-size: .69rem; margin-top: 2px;
+    }
+    .tl-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: .61rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      border-radius: 99px; padding: 3px 9px; margin-top: 10px;
+      flex-shrink: 0; align-self: flex-start;
+    }
+    .tl-badge.ongoing {
+      color: var(--teal);
+      background: rgba(42,157,143,0.08);
+      border: 1px solid rgba(42,157,143,0.22);
+    }
+    .tl-badge.current {
+      color: #22c55e;
+      background: rgba(34,197,94,0.07);
+      border: 1px solid rgba(34,197,94,0.22);
+    }
+    .tl-badge.current::before {
+      content: '';
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #22c55e;
+      animation: badge-blink 1.6s ease-in-out infinite;
+    }
+    @keyframes badge-blink {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0.25; }
+    }
+    /* Spacer between nodes */
+    .tl-spacer {
+      min-width: 44px;
+      flex-shrink: 0;
+      align-self: stretch;
+    }
+
+    /* ═══════════════════════════════════════
+       ⑥ ABOUT ME - Interactive
+    ═══════════════════════════════════════ */
+    #about {
+      background: var(--white);
+      padding: 120px 0;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      grid-template-rows: auto 152px auto;
+      gap: 20px; margin-top: 52px;
+      align-items: stretch;
+    }
+
+    /* ── Football Pitch ── */
+    .about-pitch {
+      grid-column: 1; grid-row: 1 / 3;
+      background: #1b5e20; border-radius: 20px;
+      padding: 12px 12px 8px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      min-height: 480px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .pitch-title {
+      font-family: 'Syne', sans-serif; font-size: .96rem; font-weight: 700;
+      color: rgba(255,255,255,0.95); text-align: center; letter-spacing: -.01em;
+    }
+    .pitch-label {
+      font-family: 'Caveat', cursive; font-size: 1.05rem;
+      color: rgba(255,255,255,0.65); text-align: center; margin-top: -2px;
+    }
+    .pitch-field {
+      flex: 1; position: relative; border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.45);
+      overflow: hidden;
+      background: repeating-linear-gradient(
+        180deg,
+        #2e7d32 0px, #2e7d32 36px,
+        #388e3c 36px, #388e3c 72px
+      );
+    }
+    /* Center line */
+    .pitch-line-h {
+      position: absolute; left: 0; right: 0; top: 50%; height: 1.5px;
+      background: rgba(255,255,255,0.4); pointer-events: none;
+    }
+    /* Center circle */
+    .pitch-circle {
+      position: absolute; width: 58px; height: 58px;
+      border: 1.5px solid rgba(255,255,255,0.4); border-radius: 50%;
+      left: 50%; top: 50%; transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+    /* Center dot */
+    .pitch-dot {
+      position: absolute; width: 5px; height: 5px;
+      background: rgba(255,255,255,0.5); border-radius: 50%;
+      left: 50%; top: 50%; transform: translate(-50%,-50%);
+      pointer-events: none; z-index: 2;
+    }
+    /* Penalty boxes */
+    .pitch-box {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      width: 48%; border: 1.5px solid rgba(255,255,255,0.35);
+      pointer-events: none;
+    }
+    .pitch-box-top    { top: 0; height: 18%; border-top: none; border-radius: 0 0 6px 6px; }
+    .pitch-box-bottom { bottom: 0; height: 18%; border-bottom: none; border-radius: 6px 6px 0 0; }
+    /* Player icon */
+    .player-icon {
+      position: absolute;
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      transform: translate(-50%, -40%);
+      cursor: grab; user-select: none; z-index: 10;
+    }
+    .player-icon:active { cursor: grabbing; }
+    .player-circle {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #034694; /* Chelsea blue */
+      border: 2px solid rgba(255,255,255,0.9);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.55);
+      flex-shrink: 0;
+    }
+    .player-icon.gk .player-circle { background: #e8a200; border-color: #ffe566; }
+    .player-icon:active .player-circle { box-shadow: 0 4px 14px rgba(0,0,0,0.7); }
+    .player-name {
+      font-size: .84rem; font-weight: 800; color: #fff;
+      text-align: center; white-space: nowrap; line-height: 1;
+      text-shadow: 0 1px 4px rgba(0,0,0,1);
+      background: rgba(0,0,0,0.45); border-radius: 3px; padding: 1px 3px;
+    }
+    .player-pos { display: none; }
+
+    /* ── Board Games ── */
+    /* ── Board Games: Cardboard Box ── */
+    .about-games {
+      grid-column: 2; grid-row: 1;
+      position: relative; cursor: pointer;
+      overflow: visible;
+      min-height: 210px;
+      align-self: stretch;
+    }
+    .about-games:hover { z-index: 10; }
+
+    .games-crate { position: relative; width: 100%; height: 100%; }
+
+    /* Layer 1 — cardboard box interior (warm kraft paper inside lid) */
+    .crate-interior {
+      position: absolute; inset: 0;
+      border-radius: 16px;
+      /* Warm kraft-paper inside: lighter at top (open lid), slightly darker toward box base */
+      background: linear-gradient(180deg, #B8854A 0%, #9A6830 40%, #724A18 100%);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      border: 1px solid rgba(0,0,0,0.3);
+      overflow: hidden;
+      z-index: 1;
+    }
+    /* Subtle depth shadow at the top — suggests the hollow of the open box */
+    .crate-interior::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 44%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.08) 60%, transparent 100%);
+    }
+
+    /* Layer 2 — game images (above back, below front rim) */
+    .games-peek {
+      position: absolute; inset: 0;
+      display: flex; align-items: flex-start; justify-content: center;
+      z-index: 2; pointer-events: none;
+    }
+    .game-img-wrap {
+      position: absolute;
+      bottom: 56%;   /* aligns to front-face top edge (top: 44%) */
+      transition: transform .55s cubic-bezier(.34,1.56,.64,1);
+      transform-origin: bottom center;
+    }
+    /* Rest: sink 92px into box → ~48px of game top peeks above rim (image 140px tall) */
+    .game-img-wrap:nth-child(1) { transform: rotate(-14deg) translateX(-62px) translateY(92px); z-index: 1; }
+    .game-img-wrap:nth-child(2) { transform: rotate(0deg)                     translateY(92px); z-index: 3; }
+    .game-img-wrap:nth-child(3) { transform: rotate(14deg)  translateX(62px)  translateY(92px); z-index: 2; }
+    /* Hover: pop fully up + fan wide */
+    .about-games:hover .game-img-wrap:nth-child(1) { transform: rotate(-22deg) translateX(-68px) translateY(-10px); }
+    .about-games:hover .game-img-wrap:nth-child(2) { transform: rotate(0deg)                     translateY(-18px); }
+    .about-games:hover .game-img-wrap:nth-child(3) { transform: rotate(22deg)  translateX(68px)  translateY(-10px); }
+    .game-img-wrap img {
+      height: 140px; width: auto; max-width: 130px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 22px rgba(0,0,0,0.8));
+    }
+
+    /* Layer 3 — cardboard front face (clips game bottoms) */
+    .crate-front {
+      position: absolute;
+      top: 44%; left: 0; right: 0; bottom: 0;
+      border-radius: 0 0 16px 16px;
+      background: linear-gradient(158deg, #E8A855 0%, #C47830 40%, #8C4E14 100%);
+      z-index: 3;
+      overflow: hidden;
+      box-shadow: inset 0 4px 0 rgba(0,0,0,0.28);
+    }
+    /* Corrugated cardboard texture */
+    .crate-front::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent 0, transparent 12px,
+        rgba(0,0,0,0.05) 12px, rgba(0,0,0,0.05) 13px
+      );
+      pointer-events: none;
+    }
+    /* Box opening rim */
+    .crate-rim {
+      height: 20px;
+      background: linear-gradient(to bottom, #5A2806, #8C4018);
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      position: relative; z-index: 1;
+    }
+    .crate-rim::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 16px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.38), transparent);
+    }
+    /* Label sticker on box face */
+    .games-label {
+      display: inline-block;
+      margin: 10px auto 0;
+      width: calc(100% - 32px);
+      text-align: center;
+      font-family: 'Caveat', cursive; font-size: 1.3rem; font-weight: 700;
+      color: #3A1A04;
+      letter-spacing: .04em;
+      background: rgba(255,225,160,0.82);
+      border-radius: 6px;
+      padding: 4px 12px;
+      position: relative; left: 50%; transform: translateX(-50%);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border: 1px solid rgba(180,120,40,0.35);
+    }
+
+    /* ── Photos ── */
+    .about-photos {
+      grid-column: 3; grid-row: 1 / 3;
+      display: flex; flex-direction: column; gap: 0;
+      height: auto; align-self: start;
+    }
+    .photo-frame {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 12px 12px 40px;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: transform .3s;
+      border: 1px solid var(--border);
+    }
+    .photo-frame:hover { transform: rotate(1deg) scale(1.02); }
+    /* Clip container so slide stays inside the frame */
+    .photo-img-clip {
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 0;
+    }
+    .photo-frame img {
+      width: 100%; height: auto;
+      object-fit: contain;
+      background: var(--bg2);
+      border-radius: 10px; display: block;
+      will-change: transform, opacity;
+    }
+    .photo-caption {
+      font-family: 'Caveat', cursive; font-size: 1.25rem;
+      color: var(--ink2); text-align: center;
+      margin-top: 8px; line-height: 1.3;
+    }
+    .photo-dots {
+      display: flex; justify-content: center; gap: 5px;
+      margin-top: 8px;
+    }
+    .photo-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border); transition: background .2s;
+    }
+    .photo-dot.active { background: var(--teal); }
+
+    /* ── Spotify Embed ── */
+    .about-spotify {
+      grid-column: 2; grid-row: 2;
+      background: transparent;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 0;
+      height: 152px;
+      display: block;
+      align-self: stretch;
+    }
+    .about-spotify iframe { display: block; width: 100%; height: 152px; border-radius: 12px; }
+    /* Eq bars for playing */
+    .eq-bars { display: flex; align-items: flex-end; gap: 2px; height: 14px; }
+    .eq-bar {
+      width: 3px; background: #1DB954; border-radius: 99px;
+      animation: eqBounce 0.8s ease-in-out infinite alternate;
+    }
+    .eq-bar:nth-child(1) { height: 8px; animation-delay: 0s; }
+    .eq-bar:nth-child(2) { height: 12px; animation-delay: .1s; }
+    .eq-bar:nth-child(3) { height: 6px; animation-delay: .2s; }
+    @keyframes eqBounce {
+      from { height: 4px; } to { height: var(--h, 12px); }
+    }
+
+    /* ── Tools ── */
+    .about-tools {
+      grid-column: 1; grid-row: 3;
+      background: #0d1117;
+      border-radius: 16px; padding: 0;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.07);
+      cursor: default;
+      display: flex; flex-direction: column;
+      position: relative;
+      transition: box-shadow .3s;
+    }
+    /* Tech grid background */
+    .about-tools::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none;
+    }
+    .about-tools:hover { box-shadow: 0 14px 44px rgba(0,0,0,0.34); }
+    .tools-label {
+      font-family: 'Caveat', cursive; font-size: 1.25rem;
+      color: #e5c07b; font-weight: 700; letter-spacing: .02em;
+      padding: 14px 18px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.2);
+      position: relative; z-index: 1;
+    }
+    .tools-label::before { content: '🎬 '; }
+    /* Series posters - always visible inside the card */
+    .tools-icons {
+      display: flex; align-items: center;
+      padding: 16px 10px 14px;
+      gap: 0;
+      position: relative; z-index: 1;
+    }
+    .tool-icon-wrap {
+      flex: 1; opacity: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+    }
+    .about-tools:hover .tool-icon-wrap:nth-child(1) { transform: scale(1.1) translateY(-5px); }
+    .about-tools:hover .tool-icon-wrap:nth-child(2) { transform: scale(1.15) translateY(-8px); }
+    .about-tools:hover .tool-icon-wrap:nth-child(3) { transform: scale(1.1) translateY(-5px); }
+    .tool-icon-wrap img {
+      width: 100%; max-width: 76px; height: 76px; object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+      transition: filter .3s;
+    }
+    /* Glow colours matching each series theme */
+    .about-tools:hover .tool-icon-wrap:nth-child(1) img { filter: drop-shadow(0 0 16px rgba(200,150,30,0.75)); }  /* GoT - gold */
+    .about-tools:hover .tool-icon-wrap:nth-child(2) img { filter: drop-shadow(0 0 16px rgba(200,80,30,0.7)); }   /* Peaky - amber/red */
+    .about-tools:hover .tool-icon-wrap:nth-child(3) img { filter: drop-shadow(0 0 16px rgba(100,160,220,0.7)); } /* Suits - steel blue */
+
+    /* ── Book ── */
+    .about-book {
+      grid-column: 2; grid-row: 3;
+      display: flex; align-items: center; gap: 16px;
+      background: var(--white); border-radius: 16px;
+      padding: 20px 24px; border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .book-img {
+      flex-shrink: 0; width: 72px; height: 102px;
+      border-radius: 4px 8px 8px 4px; overflow: hidden;
+      box-shadow: 4px 4px 14px rgba(0,0,0,0.28);
+      transition: transform .1s;
+    }
+    .book-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-book:hover .book-img { animation: bookSwing .55s ease-in-out; }
+    @keyframes bookSwing {
+      0%   { transform: translateX(0); }
+      20%  { transform: translateX(-7px); }
+      50%  { transform: translateX(7px); }
+      75%  { transform: translateX(-3px); }
+      100% { transform: translateX(0); }
+    }
+    .book-info {}
+    .book-reading-label {
+      font-size: .75rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 4px;
+    }
+    .book-name {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 3px;
+    }
+    .book-by { font-size: .86rem; color: var(--ink3); }
+    .book-progress {
+      margin-top: 10px; height: 4px; background: var(--bg2);
+      border-radius: 99px; overflow: hidden; width: 100%;
+    }
+    .book-fill { height: 100%; width: 62%; background: var(--teal); border-radius: 99px; }
+
+    /* ── Blog tile ── */
+    .about-note {
+      grid-column: 3; grid-row: 3;
+      align-self: stretch;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s;
+      text-decoration: none;
+    }
+    .about-note:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(42,157,143,0.28);
+    }
+    .about-note-img {
+      width: 100%; height: 130px;
+      object-fit: cover; display: block; flex-shrink: 0;
+    }
+    .about-note-body {
+      background: var(--white);
+      padding: 16px 18px 18px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .about-note-eyebrow {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 6px;
+    }
+    .about-note-title {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 1.05rem; color: var(--ink); line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .about-note-desc {
+      font-size: .82rem; color: var(--ink2); line-height: 1.6; flex: 1;
+    }
+    .about-note-cta {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 12px; font-size: .8rem; font-weight: 600;
+      color: var(--teal); align-self: flex-start;
+    }
+    .about-note-cta svg { width: 13px; height: 13px; }
+
+    /* ═══════════════════════════════════════
+       ⑦ TESTIMONIALS - Priya style
+    ═══════════════════════════════════════ */
+    #testimonials {
+      background: var(--bg);
+      padding: 120px 0;
+    }
+    .testimonial-list {
+      display: flex; flex-direction: column;
+      gap: 64px; margin-top: 64px;
+    }
+    .testimonial-item {
+      display: grid; grid-template-columns: 1fr 280px;
+      gap: 80px; align-items: center;
+      padding-bottom: 64px;
+      border-bottom: 1px solid var(--border2);
+    }
+    .testimonial-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .testi-quote-mark {
+      font-size: 3.5rem; line-height: 1; color: var(--teal);
+      font-family: Georgia, serif; margin-bottom: 16px;
+      display: block;
+    }
+    .testi-text {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(0.825rem, 1.5vw, 1.05rem);
+      font-weight: 500; color: var(--ink);
+      line-height: 1.65; letter-spacing: -.01em;
+    }
+    .testi-person { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .testi-company {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--ink);
+    }
+    .testi-avatar {
+      width: 128px; height: 128px; border-radius: 50%;
+      border: 2px dashed var(--teal);
+      background: var(--bg2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; overflow: hidden;
+    }
+    .testi-name { font-size: .96rem; font-weight: 600; color: var(--ink); }
+    .testi-title { font-size: .86rem; color: var(--ink3); }
+
+    /* ═══════════════════════════════════════
+       ⑧ CONTACT - Post-it + Links
+    ═══════════════════════════════════════ */
+    #contact {
+      background: var(--white);
+      padding: 120px 0;
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      margin-top: 52px;
+    }
+
+    /* Left: post-it arena box */
+    .contact-left { position: relative; }
+    /* Cork-board style arena - post-it bounces around inside */
+    .postit-arena {
+      position: relative;
+      height: 340px;
+      background: #EAE0CF;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.07);
+      box-shadow: inset 0 2px 16px rgba(0,0,0,0.07), var(--shadow);
+    }
+    /* Subtle dot-grid texture */
+    .postit-arena::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.09) 1px, transparent 1px);
+      background-size: 18px 18px;
+      pointer-events: none; z-index: 0;
+    }
+    /* "hover to chase" label sits above the arena, centred */
+    .postit-arena-label {
+      text-align: center;
+      font-size: .75rem; font-family: 'Inter', sans-serif;
+      color: var(--ink3); letter-spacing: .08em;
+      text-transform: uppercase; font-weight: 600;
+      margin-bottom: 10px;
+    }
+    /* The post-it lives absolutely inside .postit-arena */
+    .contact-postit {
+      position: absolute;
+      background: #FFFACD;
+      width: 175px;
+      border-radius: 3px;
+      box-shadow: 4px 8px 24px rgba(0,0,0,0.18), 0 1px 3px rgba(0,0,0,0.08);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 22px 16px 16px;
+      cursor: pointer; z-index: 5;
+    }
+    /* Sticky tape strip at top */
+    .contact-postit::before {
+      content: '';
+      position: absolute; top: -9px; left: 50%;
+      transform: translateX(-50%);
+      width: 40px; height: 16px;
+      background: rgba(255,230,80,0.6);
+      border-radius: 2px;
+    }
+    .postit-text {
+      font-family: 'Caveat', cursive;
+      font-size: 1.35rem; color: #5C4A00;
+      text-align: center; line-height: 1.5;
+      font-weight: 600;
+      transition: opacity .18s ease;
+      white-space: pre-line;
+    }
+    .postit-hint {
+      font-size: .6rem; color: rgba(92,74,0,0.4);
+      margin-top: 8px; font-family: 'Inter', sans-serif;
+      letter-spacing: .04em; transition: opacity .4s;
+    }
+    /* Right side - "Couldn't catch me there?" line */
+    .contact-missed {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem; color: var(--ink3);
+      margin-bottom: 4px; font-weight: 600;
+    }
+    /* Right: links */
+    .contact-right {}
+    .contact-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 700; color: var(--ink);
+      letter-spacing: -.03em; margin-bottom: 8px;
+    }
+    .contact-heading em { color: var(--teal); font-style: normal; }
+    .contact-sub {
+      font-size: 1.05rem; color: var(--ink2); line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .contact-links-label {
+      font-size: .75rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--ink3); margin-bottom: 14px;
+    }
+    .contact-links-label::after { content: ' ✦────'; color: var(--teal); }
+    .contact-link-grid {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .c-link {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg); border: 1.5px solid var(--border);
+      border-radius: 12px; padding: 12px 20px;
+      font-size: .93rem; font-weight: 500; color: var(--ink2);
+      transition: all .22s;
+    }
+    .c-link:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-pale); transform: translateY(-2px); }
+    .c-link.whatsapp:hover { border-color: #25D366; color: #25D366; background: rgba(37,211,102,0.08); }
+    .c-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .c-link.email { grid-column: 1 / -1; }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    footer {
+      background: #1C1C1C; color: rgba(255,255,255,0.5);
+      padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: .84rem;
+    }
+    .f-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      color: #fff; font-size: .98rem;
+    }
+    .f-logo span { color: var(--teal); }
+
+    /* ═══════════════════════════════════════
+       CASE STUDY MODAL
+    ═══════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: var(--white); border-radius: 28px;
+      max-width: 900px; width: 100%; max-height: 88vh;
+      overflow-y: auto; padding: 56px 64px 60px;
+      transform: translateY(20px) scale(.97);
+      transition: transform .3s;
+    }
+    .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
+    .modal-tag { display: none; }
+    .modal-title {
+      font-family: 'Inter', sans-serif; font-optical-sizing: auto; font-size: 2rem;
+      font-weight: 700; color: var(--ink); margin-bottom: 20px;
+      letter-spacing: -.02em; line-height: 1.18;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--bg2);
+    }
+    .modal-co { display: none; }
+    .modal-metrics { display: none; }
+    .modal-m { display: none; }
+    .modal-m-val { display: none; }
+    .modal-m-lbl { display: none; }
+    .modal-section { margin-bottom: 28px; }
+    /* ── Section headings — prominent left-border style ── */
+    .modal-section { margin-bottom: 36px; }
+    .modal-section h4 {
+      font-family: 'Inter', sans-serif; font-optical-sizing: auto;
+      font-size: 1.05rem; font-weight: 700;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: var(--ink); margin-bottom: 18px;
+      padding: 10px 16px;
+      background: var(--bg);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 10px 10px 0;
+      display: block;
+    }
+    .modal-section p { font-size: .95rem; color: var(--ink2); line-height: 1.85; }
+    .modal-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .modal-section ul li {
+      font-size: .93rem; color: var(--ink2);
+      display: flex; gap: 10px; align-items: flex-start; line-height: 1.75;
+    }
+    .modal-section ul li::before { content: '→'; color: var(--teal); flex-shrink: 0; font-weight: 700; }
+    .modal-close {
+      position: absolute; top: 24px; right: 24px;
+      background: var(--bg2); border: none; border-radius: 50%;
+      width: 38px; height: 38px; cursor: pointer;
+      font-size: 1.05rem; color: var(--ink2);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .modal-close:hover { background: var(--border); }
+    .modal-box { position: relative; }
+    /* Rich modal extras */
+    .modal-italic {
+      font-style: italic; color: var(--ink); font-weight: 600;
+      font-size: 1rem; margin-bottom: 14px;
+      padding: 12px 16px; background: var(--teal-pale);
+      border-radius: 10px;
+    }
+    .modal-quote {
+      margin-top: 18px; font-style: italic;
+      color: var(--ink); font-weight: 600;
+      font-size: .96rem; border-left: 4px solid var(--teal);
+      background: var(--teal-pale);
+      padding: 12px 16px; border-radius: 0 10px 10px 0;
+      line-height: 1.65;
+    }
+    .modal-steps { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+    .modal-step {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--bg); border-radius: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+    }
+    .modal-step-num {
+      font-family: 'Inter', sans-serif; font-optical-sizing: auto; font-size: .82rem; font-weight: 800;
+      color: var(--white); background: var(--teal);
+      border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      letter-spacing: .02em; margin-top: 1px;
+    }
+    .modal-step-body { flex: 1; }
+    .modal-step-body strong { font-size: .96rem; color: var(--ink); display: block; margin-bottom: 5px; }
+    .modal-step-body p { font-size: .9rem; color: var(--ink2); line-height: 1.78; margin: 0; }
+    /* ✦ highlight bullets for Solution section */
+    .modal-highlight-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .modal-highlight-list li {
+      font-size: .93rem; color: var(--ink2);
+      display: flex; gap: 12px; align-items: flex-start; line-height: 1.75;
+      padding: 10px 14px;
+      background: var(--bg);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .modal-highlight-list li::before { content: '✦'; color: var(--teal); flex-shrink: 0; font-size: .8rem; margin-top: 3px; }
+    /* Numbered learnings */
+    .modal-ol { list-style: none; display: flex; flex-direction: column; gap: 14px; counter-reset: modal-counter; }
+    .modal-ol li { display: flex; gap: 14px; align-items: flex-start; font-size: .93rem; color: var(--ink2); line-height: 1.78; counter-increment: modal-counter;
+      background: var(--bg); border-radius: 12px; padding: 14px 16px; border: 1px solid var(--border);
+    }
+    .modal-ol li span { flex: 1; }
+    .modal-ol li span strong { color: var(--teal); font-weight: 700; }
+    .modal-ol li::before {
+      content: counter(modal-counter);
+      font-family: 'Inter', sans-serif; font-optical-sizing: auto; font-size: .82rem; font-weight: 800;
+      color: var(--teal); background: var(--teal-pale);
+      border-radius: 50%; width: 24px; height: 24px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+
+    /* ── Next Case Study Button ── */
+    .modal-next-wrap {
+      display: flex; justify-content: flex-end;
+      margin-top: 40px; padding-top: 24px;
+      border-top: 2px solid var(--bg2);
+    }
+    .modal-next-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--ink); color: #fff;
+      border: none; border-radius: 14px;
+      padding: 14px 24px; font-size: 1rem; font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer; transition: background .2s, transform .2s;
+      letter-spacing: -.01em;
+    }
+    .modal-next-btn:hover { background: var(--teal); transform: translateX(5px); }
+    .modal-next-btn .next-arrow {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .hero-inner { grid-template-columns: 1fr 220px; gap: 32px; }
+      .hero-left  { grid-column: 1; }
+      .hero-photo-col { grid-column: 2; }
+    }
+    @media (max-width: 1024px) {
+      .phi-grid { grid-template-columns: 1fr; }
+      .tl-outer { padding-bottom: 20px; }
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .about-fridge { grid-column: 1; grid-row: 1; }
+      .about-games  { grid-column: 2; }
+      .about-photos { grid-column: 1; grid-row: 2; }
+      .about-spotify{ grid-column: 2; }
+      .about-tools  { grid-column: 1; }
+      .about-book   { grid-column: 2; }
+      .about-note   { grid-column: 1 / -1; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .testimonial-item { grid-template-columns: 1fr; }
+      .cs-entry { grid-template-columns: 1fr !important; }
+      .cs-img-wrap { aspect-ratio: 16/9; width: 100%; }
+      .cs-title-main, .cs-subtitle, .cs-impact-list li { white-space: normal; }
+    }
+    @media (max-width: 768px) {
+      nav { top: 12px; padding: 8px 20px; gap: 16px; }
+      .nav-links { display: none; }
+      .wrap { padding: 0 20px; }
+      #hero { padding: 100px 20px 60px; }
+      .hero-inner { grid-template-columns: 1fr !important; }
+      .hero-photo-col { display: none; }
+      .hero-sub { white-space: normal; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-fridge, .about-games, .about-photos, .about-spotify, .about-tools, .about-book, .about-note {
+        grid-column: 1; grid-row: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════════════ -->
+  <nav>
+    <div class="nav-logo">AD<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#case-studies">Work</a></li>
+      <li><a href="#journey">Experience</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="./resume-ankit-deore.pdf" target="_blank" class="nav-resume">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════════
+         ① HERO
+    ═══════════════════════════════════════════════════ -->
+    <section id="hero">
+
+      <!-- Floating image objects - spread around edges, Venn area freed up -->
+      <div class="hero-obj ho-football"><img src="./landing-football.png"    alt="Football"     style="width:155px;height:155px;border-radius:50%;object-fit:cover;"/></div>
+      <div class="hero-obj ho-mountain"><img src="./landing-mountains.jpg"   alt="Trekking"     style="width:170px;height:125px;object-fit:cover;border-radius:14px;"/></div>
+      <div class="hero-obj ho-surfing" ><img src="./landing-surfing.png"     alt="Surfing"      style="width:150px;height:175px;object-fit:cover;border-radius:14px;"/></div>
+      <div class="hero-obj ho-gym"     ><img src="./landing-gym.png"         alt="Gym"          style="width:145px;height:145px;object-fit:cover;border-radius:14px;"/></div>
+      <div class="hero-obj ho-tea"     ><img src="./landing-tea.png"         alt="Tea"          style="width:130px;height:130px;object-fit:cover;border-radius:14px;"/></div>
+      <div class="hero-obj ho-poker"   ><img src="./landing-poker.png"      alt="Poker"        style="width:130px;height:130px;object-fit:cover;border-radius:14px;"/></div>
+      <div class="hero-obj ho-iim"     ><img src="./logo-iiml.png"        alt="IIM Lucknow"  style="width:135px;height:135px;object-fit:contain;border-radius:14px;"/></div>
+      <div class="hero-obj ho-chelsea" ><img src="./landing-chelsea.svg"     alt="Chelsea FC"   style="width:130px;height:130px;object-fit:contain;"/></div>
+      <div class="hero-obj ho-ticket"  ><img src="./landing-ticket4.png" alt="Travel ticket" style="width:225px;height:auto;border-radius:12px;"/></div>
+      <div class="hero-obj ho-ps"      ><img src="./landing-playstation.png" alt="PlayStation"  style="width:145px;height:145px;object-fit:contain;border-radius:14px;"/></div>
+      <div class="hero-obj ho-macbook" ><img src="./landing-macbook.png"            alt="MacBook"      style="width:170px;height:auto;object-fit:contain;border-radius:10px;"/></div>
+
+      <div class="hero-inner">
+
+        <!-- ── LEFT: Text ── -->
+        <div class="hero-left">
+          <h1 class="hero-h1">
+            Hi, I'm <span class="teal">Ankit!</span>
+          </h1>
+
+          <p class="hero-tagline">and I love building fun things with passionate people!</p>
+          <p class="hero-sub">MBA Candidate @ IIM Lucknow · Ex-AU Bank · Ex-Axis Bank</p>
+
+          <div class="hero-boxes">
+            <div class="hbb-box">
+              <span class="hbb-chip tag">🗂️ Product Manager</span>
+              <span class="hbb-chip tag" style="margin-left:6px;">⚡ Vibe Coder</span>
+              <div class="hbb-divider-v"></div>
+              <span class="hbb-chip avail"><span class="avail-dot"></span>Available for PM Roles</span>
+            </div>
+            <div class="hbb-box">
+              <a href="#case-studies" class="hbb-btn primary">View Case Studies →</a>
+              <a href="./resume-ankit-deore.pdf" target="_blank" class="hbb-btn secondary" style="margin-left:8px;">Resume ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MIDDLE: Photo card ── -->
+        <div class="hero-photo-col">
+          <div class="hero-photo-card">
+            <img src="./photo-ankit-sunset.jpg" alt="Ankit Deore"/>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ② CASE STUDIES
+    ═══════════════════════════════════════════════════ -->
+    <section id="case-studies">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="s-ghost">Work</div>
+          <span class="s-eyebrow">Featured Work</span>
+          <h2 class="s-title cs-section-title" style="font-size:clamp(2rem,3.8vw,3.4rem); margin-top:6px;">
+            Case Studies
+          </h2>
+          <p style="font-size:.95rem; color:var(--ink2); margin-top:10px; line-height:1.7; white-space:nowrap;">
+            Deep dives into the problems I've owned - strategy, discovery, execution, and results.
+          </p>
+        </div>
+
+        <div class="cs-entries">
+
+          <!-- CS 1 - Digital Onboarding -->
+          <div class="cs-entry reveal" data-modal="cs1">
+            <div class="cs-img-wrap">
+              <div class="cs-preview" style="background-color:#1E0A35; background-image:url('./bg-au-ace.png'); background-size:contain; background-repeat:no-repeat; background-position:center;">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,4,30,0.72) 0%,rgba(15,4,30,0.1) 55%,transparent 100%);"></div>
+                <div class="cs-preview-inner">
+                  <div class="cs-preview-tag">Digital Onboarding</div>
+                  <div class="cs-preview-title">AU ACE: AU Bank's 100% Paperless Onboarding</div>
+                </div>
+              </div>
+            </div>
+            <div class="cs-text">
+              <img src="./logo-au-bank.png" class="cs-logo" alt="AU Small Finance Bank"/>
+              <div class="cs-num">Digital Onboarding</div>
+              <h3 class="cs-title-main">AU ACE: AU Bank's 100% Paperless Onboarding</h3>
+              <p class="cs-subtitle">Imagine handing a customer a pen and paper form in 2024 while your competitor's app opens an account in 10 minutes.</p>
+              <div class="cs-impact-label">Impact</div>
+              <ul class="cs-impact-list">
+                <li>Complete overhaul of 5 onboarding journeys: Individual, Sole Props, Partnerships, LLPs and Companies</li>
+                <li>Adopted by a 3500+ pan-India sales team &amp; 1.25 Lakh accounts opened annually</li>
+              </ul>
+              <div class="cs-read-more">Read case study →</div>
+            </div>
+          </div>
+
+          <!-- CS 2 - Risk Architecture (reversed) -->
+          <div class="cs-entry reveal reveal-d1" data-modal="cs2">
+            <div class="cs-img-wrap">
+              <div class="cs-preview" style="background-color:#0B1A2E; background-image:url('./bg-risk-model.png'); background-size:contain; background-repeat:no-repeat; background-position:center;">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(5,12,25,0.72) 0%,rgba(5,12,25,0.1) 55%,transparent 100%);"></div>
+                <div class="cs-preview-inner">
+                  <div class="cs-preview-tag">Risk Architecture</div>
+                  <div class="cs-preview-title">Designing First-of-its-Kind Preemptive Risk Model</div>
+                </div>
+              </div>
+            </div>
+            <div class="cs-text">
+              <img src="./logo-au-bank.png" class="cs-logo" alt="AU Small Finance Bank"/>
+              <div class="cs-num">Risk Architecture</div>
+              <h3 class="cs-title-main">CIBIL-like Score for Current Account Users</h3>
+              <p class="cs-subtitle">What if your bank could tell a fraudster "not today" - before they even opened an account?</p>
+              <div class="cs-impact-label">Impact</div>
+              <ul class="cs-impact-list">
+                <li>Preemptive risk categorization model live within 3 months of ideation</li>
+                <li>Real-time fraud flagging embedded seamlessly into the AU Ace onboarding flow</li>
+              </ul>
+              <div class="cs-read-more">Read case study →</div>
+            </div>
+          </div>
+
+          <!-- CS 3 - Rural Inclusion -->
+          <div class="cs-entry reveal reveal-d2" data-modal="cs4">
+            <div class="cs-img-wrap">
+              <div class="cs-preview" style="background-image:url('./bg-axis-bank.png?v=2'); background-size:105% 105%; background-repeat:no-repeat; background-position:center;">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,5,12,0.78) 0%,rgba(30,5,12,0.08) 50%,transparent 100%);"></div>
+                <div class="cs-preview-inner">
+                  <div class="cs-preview-tag">Rural Inclusion</div>
+                  <div class="cs-preview-title" style="white-space:nowrap;">Last Mile: Biometric-First Banking</div>
+                </div>
+              </div>
+            </div>
+            <div class="cs-text">
+              <img src="./logo-axis-bank.svg" class="cs-logo" alt="Axis Bank"/>
+              <div class="cs-num">Rural Inclusion</div>
+              <h3 class="cs-title-main">Last Mile: Biometric-First Banking</h3>
+              <p class="cs-subtitle">What if opening a bank account didn't need a branch, paperwork, or even good internet?</p>
+              <div class="cs-impact-label">Impact</div>
+              <ul class="cs-impact-list">
+                <li>10,000+ users onboarded in rural / low-network areas in the first quarter, post launch</li>
+                <li>Created a setup that could be scaled across similar segments</li>
+              </ul>
+              <div class="cs-read-more">Read case study →</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ③ PHILOSOPHY
+    ═══════════════════════════════════════════════════ -->
+    <section id="philosophy">
+      <div class="wrap section-pad">
+        <div class="reveal">
+          <div class="s-ghost">Think</div>
+          <span class="s-eyebrow">Principles</span>
+          <h2 class="s-title" style="font-size:clamp(1.8rem,3.5vw,3rem); margin-top:6px;">My Product Philosophy</h2>
+          <p style="font-size:.95rem; color:var(--ink2); margin-top:10px; line-height:1.7; white-space:nowrap;">
+            Three lenses I bring to every problem - shaped by 45 months of shipping in regulated markets.
+          </p>
+        </div>
+
+        <div class="phi-grid">
+          <div class="phi-card reveal reveal-d1" data-num="01">
+            <div class="phi-card-bg-wash"></div>
+            <span class="phi-icon">⚖️</span>
+            <div class="phi-title">Regulation as a Constraint, Not a Roadblock</div>
+            <p class="phi-text">
+              Compliance is the ultimate design challenge. I build <em>"Golden Paths"</em> that satisfy the auditor
+              while delighting the customer. RBI guidelines aren't blockers - they're the constraint that forces
+              elegant, trustworthy product decisions.
+            </p>
+          </div>
+          <div class="phi-card reveal reveal-d2" data-num="02">
+            <div class="phi-card-bg-wash"></div>
+            <span class="phi-icon">🔬</span>
+            <div class="phi-title">The "Edge Case" is the Real Case</div>
+            <p class="phi-text">
+              In banking, ignoring an edge case leads to NPAs or fines. By designing for the most
+              complex entity first - say, a partnership firm - the simple retail journey becomes
+              <em>naturally robust</em>. Robustness isn't overhead; it's the foundation.
+            </p>
+          </div>
+          <div class="phi-card reveal reveal-d3" data-num="03">
+            <div class="phi-card-bg-wash"></div>
+            <span class="phi-icon">📊</span>
+            <div class="phi-title">Data vs. Friction</div>
+            <p class="phi-text">
+              I use data to understand what's happening, but the real focus is figuring out <em>why users behave</em> the way they do.
+              Most problems usually look like metrics on a dashboard first - until you dig deeper and realize there's a
+              <em>real user frustration</em> behind them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ④ JOURNEY - Merged Horizontal Timeline
+    ═══════════════════════════════════════════════════ -->
+    <section id="journey">
+      <div class="wrap section-pad">
+        <div class="reveal">
+          <div class="s-ghost">Story</div>
+          <span class="s-eyebrow">The Full Picture ✦</span>
+          <h2 class="s-title" style="font-size:clamp(1.8rem,3.5vw,3rem); margin-top:6px;">From Circuits to Products</h2>
+          <p style="font-size:.95rem; color:var(--ink2); margin-top:10px; max-width:520px; line-height:1.7;">
+            Education and work, side by side - the way they always happened.
+          </p>
+        </div>
+
+        <div class="tl-outer reveal reveal-d1" style="margin-top:60px;">
+          <div class="tl-track">
+
+            <!-- Node 1: Volvo CE · BELOW (most recent, leftmost) -->
+            <div class="tl-node tl-below">
+              <div class="tl-top-zone"></div>
+              <div class="tl-dot current">⚡</div>
+              <div class="tl-year">2026</div>
+              <div class="tl-bot-zone">
+                <div class="tl-stem"></div>
+                <div class="tl-card">
+                  <div class="tl-type"><span class="tl-type-dot"></span>Internship</div>
+                  <div class="tl-org-row">
+                    <div class="tl-org-text">
+                      <div class="tl-org">Volvo CE</div>
+                      <div class="tl-role">Summer Intern</div>
+                    </div>
+                    <img class="tl-logo" src="./logo-volvo.png" alt="Volvo CE"/>
+                  </div>
+                  <ul class="tl-bullets">
+                    <li>Visualized subjective OKRs and KPIs for structured tracking of Volvo's 2030 strategy</li>
+                    <li>Assisted in implementing key initiatives under the 2030 strategy roadmap</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-spacer"></div>
+
+            <!-- Node 2: IIM Lucknow · ABOVE -->
+            <div class="tl-node tl-above">
+              <div class="tl-top-zone">
+                <div class="tl-card">
+                  <div class="tl-type"><span class="tl-type-dot"></span>Education</div>
+                  <div class="tl-org-row">
+                    <div class="tl-org-text">
+                      <div class="tl-org">IIM Lucknow</div>
+                      <div class="tl-role">PGP - Sustainable Management</div>
+                    </div>
+                    <img class="tl-logo" src="./logo-iiml.png" alt="IIM Lucknow"/>
+                  </div>
+                  <ul class="tl-bullets">
+                    <li>Member: International Immersion Committee</li>
+                    <li>Member: Product Club | Consulting Club | Finance Club</li>
+                  </ul>
+                  <div class="tl-badge ongoing">Ongoing</div>
+                </div>
+                <div class="tl-stem"></div>
+              </div>
+              <div class="tl-dot edu">🎓</div>
+              <div class="tl-year">2025 – 2027</div>
+              <div class="tl-bot-zone"></div>
+            </div>
+
+            <div class="tl-spacer"></div>
+
+            <!-- Node 3: AU Small Finance Bank · BELOW -->
+            <div class="tl-node tl-below">
+              <div class="tl-top-zone"></div>
+              <div class="tl-dot work">💼</div>
+              <div class="tl-year">2023 – 2025</div>
+              <div class="tl-bot-zone">
+                <div class="tl-stem"></div>
+                <div class="tl-card">
+                  <div class="tl-type"><span class="tl-type-dot"></span>Work</div>
+                  <div class="tl-org-row">
+                    <div class="tl-org-text">
+                      <div class="tl-org">AU Small Finance Bank</div>
+                      <div class="tl-role">Product Manager</div>
+                    </div>
+                    <img class="tl-logo" src="./logo-au-bank.png" alt="AU Small Finance Bank"/>
+                  </div>
+                  <ul class="tl-bullets">
+                    <li>5 onboarding journeys; TAT ↓20%, drop-off ↓40%</li>
+                    <li>First-of-its-kind risk scoring model for current accounts</li>
+                    <li>3 Indirect Reportees</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-spacer"></div>
+
+            <!-- Node 4: Axis Bank · ABOVE -->
+            <div class="tl-node tl-above">
+              <div class="tl-top-zone">
+                <div class="tl-card">
+                  <div class="tl-type"><span class="tl-type-dot"></span>Work</div>
+                  <div class="tl-org-row">
+                    <div class="tl-org-text">
+                      <div class="tl-org">Axis Bank</div>
+                      <div class="tl-role">Digital Product Owner</div>
+                    </div>
+                    <img class="tl-logo" src="./logo-axis-bank.svg" alt="Axis Bank"/>
+                  </div>
+                  <ul class="tl-bullets">
+                    <li>10,000+ rural users onboarded via biometric-first journeys</li>
+                    <li>D2C DIY flow uplift of ~3.5× for sole proprietors</li>
+                  </ul>
+                </div>
+                <div class="tl-stem"></div>
+              </div>
+              <div class="tl-dot work">💼</div>
+              <div class="tl-year">2021 – 2023</div>
+              <div class="tl-bot-zone"></div>
+            </div>
+
+            <div class="tl-spacer"></div>
+
+            <!-- Node 5: SPCE · BELOW (oldest, rightmost) -->
+            <div class="tl-node tl-below">
+              <div class="tl-top-zone"></div>
+              <div class="tl-dot edu">🎓</div>
+              <div class="tl-year">2017 – 2021</div>
+              <div class="tl-bot-zone">
+                <div class="tl-stem"></div>
+                <div class="tl-card">
+                  <div class="tl-type"><span class="tl-type-dot"></span>Education</div>
+                  <div class="tl-org-row">
+                    <div class="tl-org-text">
+                      <div class="tl-org">SPCE Mumbai</div>
+                      <div class="tl-role">B.Tech - Electrical Engineering</div>
+                    </div>
+                    <img class="tl-logo" src="./logo-spce.png" alt="SPCE Mumbai"/>
+                  </div>
+                  <ul class="tl-bullets">
+                    <li>Sports Secretary</li>
+                    <li>Organiser: Robowars, Annual Debate &amp; Treasure Hunt</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ⑥ ABOUT ME - Interactive
+    ═══════════════════════════════════════════════════ -->
+    <section id="about">
+      <div class="wrap section-pad">
+        <div class="reveal">
+          <div class="s-ghost">About Me</div>
+          <span class="s-eyebrow">About</span>
+          <h2 class="s-title" style="font-size:clamp(1.8rem,3.5vw,3rem); margin-top:6px;">The Person Behind the PM</h2>
+        </div>
+
+        <div class="about-grid">
+
+          <!-- ── Football Pitch ── -->
+          <div class="about-pitch reveal">
+            <div class="pitch-title">⚽ The Dream Team</div>
+            <div class="pitch-label">Drag to set your formation</div>
+            <div class="pitch-field" id="pitchField">
+              <div class="pitch-line-h"></div>
+              <div class="pitch-circle"></div>
+              <div class="pitch-dot"></div>
+              <div class="pitch-box pitch-box-top"></div>
+              <div class="pitch-box pitch-box-bottom"></div>
+
+              <!-- GK -->
+              <div class="player-icon gk" style="left:50%;top:85%;"><div class="player-circle"></div><span class="player-name">Čech</span></div>
+              <!-- DEF (4) - 4 across -->
+              <div class="player-icon" style="left:10%;top:67%;"><div class="player-circle"></div><span class="player-name">A. Cole</span></div>
+              <div class="player-icon" style="left:32%;top:67%;"><div class="player-circle"></div><span class="player-name">Carvalho</span></div>
+              <div class="player-icon" style="left:68%;top:67%;"><div class="player-circle"></div><span class="player-name">Terry</span></div>
+              <div class="player-icon" style="left:90%;top:67%;"><div class="player-circle"></div><span class="player-name">Azpi</span></div>
+              <!-- CDM (1) -->
+              <div class="player-icon" style="left:50%;top:50%;"><div class="player-circle"></div><span class="player-name">Makélélé</span></div>
+              <!-- CM (2) -->
+              <div class="player-icon" style="left:28%;top:34%;"><div class="player-circle"></div><span class="player-name">Lampard</span></div>
+              <div class="player-icon" style="left:72%;top:34%;"><div class="player-circle"></div><span class="player-name">Kanté</span></div>
+              <!-- FWD (3) - 4-1-2-3 -->
+              <div class="player-icon" style="left:18%;top:16%;"><div class="player-circle"></div><span class="player-name">Hazard</span></div>
+              <div class="player-icon" style="left:50%;top:13%;"><div class="player-circle"></div><span class="player-name">Drogba</span></div>
+              <div class="player-icon" style="left:82%;top:16%;"><div class="player-circle"></div><span class="player-name">Willian</span></div>
+            </div>
+          </div>
+
+          <!-- ── Board Games ── -->
+          <div class="about-games reveal reveal-d1">
+            <div class="games-crate">
+              <!-- Layer 1: dark interior (back face) -->
+              <div class="crate-interior"></div>
+              <!-- Layer 2: game images (peek from box) -->
+              <div class="games-peek">
+                <div class="game-img-wrap">
+                  <img src="./game-poker.png" alt="Poker"/>
+                </div>
+                <div class="game-img-wrap">
+                  <img src="./game-cards-against-humanity.png" alt="Cards Against Humanity"/>
+                </div>
+                <div class="game-img-wrap">
+                  <img src="./game-scotland-yard.png" alt="Scotland Yard"/>
+                </div>
+              </div>
+              <!-- Layer 3: cardboard front face (above game bottoms) -->
+              <div class="crate-front">
+                <div class="crate-rim"></div>
+                <div class="games-label">Ankit's Board Games 🎲</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Photos cycling ── -->
+          <div class="about-photos reveal reveal-d2">
+            <div class="photo-frame" id="photoFrame">
+              <div class="photo-img-clip">
+                <img id="cyclePhoto" src="./photo-ankit-snow.jpeg" alt="Ankit in snow" onerror="this.style.background='#E8E4DC'; this.style.minHeight='220px'"/>
+              </div>
+              <div class="photo-caption" id="photoCaption">Wingardium Leviosa!</div>
+              <div class="photo-dots">
+                <div class="photo-dot active" id="dot0"></div>
+                <div class="photo-dot" id="dot1"></div>
+                <div class="photo-dot" id="dot2"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Spotify Embed ── -->
+          <div class="about-spotify reveal reveal-d1">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0DOAVaHNQ7I3Cjgi1W7Bk7?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+
+          <!-- ── Favourite Series ── -->
+          <div class="about-tools reveal">
+            <div class="tools-label">Ankit's Favourite Series</div>
+            <div class="tools-icons">
+              <div class="tool-icon-wrap">
+                <img src="./show-game-of-thrones.jpg" alt="Game of Thrones" title="Game of Thrones"/>
+              </div>
+              <div class="tool-icon-wrap">
+                <img src="./show-peaky-blinders.jpg" alt="Peaky Blinders" title="Peaky Blinders"/>
+              </div>
+              <div class="tool-icon-wrap">
+                <img src="./show-suits.jpg" alt="Suits" title="Suits"/>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Book ── -->
+          <div class="about-book reveal reveal-d1">
+            <div class="book-img">
+              <img src="./book-sapiens.png" alt="Sapiens by Yuval Noah Harari"/>
+            </div>
+            <div class="book-info">
+              <div class="book-reading-label">Currently Reading</div>
+              <div class="book-name">Sapiens</div>
+              <div class="book-by">Yuval Noah Harari</div>
+              <div class="book-progress"><div class="book-fill"></div></div>
+            </div>
+          </div>
+
+          <!-- ── Blog tile ── -->
+          <a class="about-note reveal reveal-d2" href="https://sustainonomicss.wordpress.com/" target="_blank" rel="noopener">
+            <img class="about-note-img" src="./blog-sustainability.jpg" alt="Sustain-o-nomicss blog"/>
+            <div class="about-note-body">
+              <div class="about-note-eyebrow">Blog · Sustainability</div>
+              <div class="about-note-title">Sustain-o-nomicss</div>
+<span class="about-note-cta">
+                Read the blog
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+              </span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ⑦ TESTIMONIALS
+    ═══════════════════════════════════════════════════ -->
+    <section id="testimonials">
+      <div class="wrap section-pad">
+        <div class="reveal">
+          <div class="s-ghost">Voices</div>
+          <span class="s-eyebrow">Testimonials</span>
+          <h2 class="s-title" style="font-size:clamp(1.8rem,3.5vw,2.4rem); margin-top:6px;">How's It Working With Me?</h2>
+        </div>
+
+        <div class="testimonial-list">
+
+          <!-- Testimonial 1 -->
+          <div class="testimonial-item reveal">
+            <div>
+              <span class="testi-quote-mark">"</span>
+              <p class="testi-text">
+                I had the chance to be both his teammate and flatmate, so I've seen his work ethic from pretty close - during office hours, late-night deployments, and even random discussions at home. One thing that always stood out was that he never hesitated to take ownership, even when it meant handling extra work or stepping into responsibilities outside his role.
+                <br/><br/>
+                Whether it was taking up additional projects, helping onboard new team members, or just making sure things didn't fall through the cracks, he was always someone the team could rely on without having to ask twice.
+              </p>
+            </div>
+            <div class="testi-person">
+              <div class="testi-company">AU Small Finance Bank</div>
+              <div class="testi-avatar" style="overflow:hidden; padding:0;">
+                <img src="./profile-ripudamanbir.jpg" alt="Ripudamanbir" style="width:100%; height:100%; object-fit:cover; border-radius:50%;"/>
+              </div>
+              <div>
+                <div class="testi-name">Ripudamanbir</div>
+                <div class="testi-title">Product Manager</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-item reveal reveal-d1">
+            <div>
+              <span class="testi-quote-mark">"</span>
+              <p class="testi-text">
+                I've worked with Ankit across placement prep, club activities, and late-night assignment sessions at IIM Lucknow, and one thing that always stood out was how naturally he took ownership. He's someone who brings structure to discussions and helps turn ideas into execution.
+                <br/><br/>
+                What I really liked was his approach to problem solving - analytical, clear, and never overcomplicated. Whether it was interview prep, presentations, or team discussions, he always handled things with a calm and sorted mindset, even during hectic deadlines.
+              </p>
+            </div>
+            <div class="testi-person">
+              <div class="testi-company">IIM Lucknow, ex-TCS</div>
+              <div class="testi-avatar" style="overflow:hidden; padding:0;">
+                <img src="./profile-shaily.jpg" alt="Shaily" style="width:100%; height:100%; object-fit:cover; border-radius:50%;"/>
+              </div>
+              <div>
+                <div class="testi-name">Shaily</div>
+                <div class="testi-title">Front End Developer</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         ⑧ CONTACT
+    ═══════════════════════════════════════════════════ -->
+    <section id="contact">
+      <div class="wrap section-pad">
+        <div class="reveal">
+          <div class="s-ghost">Connect</div>
+          <span class="s-eyebrow">Contact</span>
+        </div>
+
+        <div class="contact-grid reveal">
+          <!-- Left: cork-board arena with runaway post-it -->
+          <div class="contact-left">
+            <div class="postit-arena-label">hover to chase</div>
+            <div class="postit-arena">
+              <div class="contact-postit" id="postit">
+                <div class="postit-text" id="postitText">Catch me if
+you can! 😏</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Links -->
+          <div class="contact-right">
+            <p class="contact-missed">Couldn't catch me there? 😏</p>
+            <h2 class="contact-heading" style="white-space:nowrap;">
+              Reach out <em>to me here ✦</em>
+            </h2>
+            <p class="contact-sub">
+              Whether it's a new role, a collaboration, feedback on my case studies, or just a chat about product strategy - I'd love to connect.
+            </p>
+            <div class="contact-links-label">Find me here</div>
+            <div class="contact-link-grid">
+              <a href="https://www.linkedin.com/in/ankitdeore/" target="_blank" class="c-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zm2-6a2 2 0 110 4 2 2 0 010-4z"/></svg>
+                LinkedIn
+              </a>
+              <a href="mailto:pgpsm11004@iiml.ac.in" class="c-link email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                pgpsm11004@iiml.ac.in
+              </a>
+              <!-- WhatsApp direct message -->
+              <a href="https://wa.me/919823066441" target="_blank" class="c-link whatsapp">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="color:#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.103 1.523 5.824L.057 23.215a.75.75 0 00.921.921l5.33-1.454A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.503-5.235-1.382l-.371-.214-3.862 1.053 1.077-3.755-.233-.387A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                WhatsApp me
+              </a>
+              <a href="./resume-ankit-deore.pdf" target="_blank" class="c-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer>
+    <div class="f-logo">Ankit<span>.</span>Deore</div>
+    <div>Product Manager & FinTech Architect · 2026</div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════
+       CASE STUDY MODALS
+  ═══════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════════════ -->
+  <script>
+  (() => {
+    'use strict';
+
+    /* ── Scroll Reveal ── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ── Case Study 3D Tilt ── */
+    document.querySelectorAll('.cs-img-wrap').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r  = card.getBoundingClientRect();
+        const dx = (e.clientX - r.left)  / r.width  - 0.5;
+        const dy = (e.clientY - r.top)   / r.height - 0.5;
+        card.style.transform  = `perspective(900px) rotateX(${-dy*8}deg) rotateY(${dx*8}deg) scale(1.03)`;
+        card.style.transition = 'transform .08s linear';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform  = 'perspective(900px) rotateX(0) rotateY(0) scale(1)';
+        card.style.transition = 'transform .5s cubic-bezier(.25,.46,.45,.94)';
+      });
+    });
+
+    /* ── Case Study Modal ── */
+    const csData = {
+      cs1: {
+        tag: 'Digital Onboarding · AU Small Finance Bank · 2023-25',
+        title: "AU ACE: AU Bank's 100% Paperless Onboarding",
+        co: 'AU Small Finance Bank, Mumbai',
+        metrics: [
+          { val: '40%',      lbl: 'TAT reduction' },
+          { val: '100%',     lbl: 'Paperless Process' },
+          { val: '3500+',    lbl: 'Pan-India sales team' },
+          { val: '1.25L',    lbl: 'Accounts opened annually' },
+        ],
+        richBody: `
+          <div class="modal-section">
+            <h4>Context in a Flash</h4>
+            <ul>
+              <li><strong>Product:</strong> AU Ace - AU Small Finance Bank's fully digital customer onboarding app</li>
+              <li><strong>Role:</strong> <span style="color:var(--teal);font-weight:600;">Solo PM</span> (yes, just me - no pressure)</li>
+              <li style="white-space:nowrap;"><strong>Scope:</strong> Ideated and Scaled 5 user journeys: <span style="color:var(--teal);font-weight:600;">Individuals, Sole Proprietors, Partnership, LLP &amp; Company</span></li>
+              <li><strong>Timeline:</strong> <span style="color:var(--teal);font-weight:600;">1 year</span>, ideation to delivery</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4>The Problem</h4>
+            <p class="modal-italic">The old journey was digital in name only.</p>
+            <p>Sales reps were collecting <span style="color:var(--teal);font-weight:600;">physical xerox copies</span> as backup because the app crashed often enough that trusting it felt like gambling. The <span style="color:var(--teal);font-weight:600;">KYC integrations</span> were bare minimum - Aadhaar, PAN, CIN, GST - just enough to tick a regulatory box, not enough to actually do anything useful.</p>
+            <p style="margin-top:12px;margin-bottom:8px;font-weight:600;color:var(--ink);font-size:.9rem;">Here's what was broken:</p>
+            <ul>
+              <li>No structured document collection flow</li>
+              <li><span style="color:var(--teal);font-weight:600;">Frequent app crashes</span> mid-onboarding (great first impression for customers)</li>
+              <li>Family grouping - a key AU Bank feature - done entirely manually</li>
+              <li>Zero <span style="color:var(--teal);font-weight:600;">cross-sell touchpoints</span> during onboarding</li>
+              <li>Accounts processed from branch, not customer's location - a <span style="color:var(--teal);font-weight:600;">compliance risk</span> hiding in plain sight</li>
+              <li><span style="color:var(--teal);font-weight:600;">TAT was painfully long</span>, losing customers to faster alternatives</li>
+            </ul>
+            <p class="modal-quote">The sales team wasn't frustrated. They were exhausted.</p>
+          </div>
+          <div class="modal-section">
+            <h4>My Process</h4>
+            <div class="modal-steps">
+              <div class="modal-step">
+                <div class="modal-step-num">01</div>
+                <div class="modal-step-body"><strong>Get everyone in the room (metaphorically)</strong><p>I started with deep requirement gathering - business, operations, compliance, IT, and the sales team on ground. Everyone had an opinion. My job was to find the signal in the noise.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">02</div>
+                <div class="modal-step-body"><strong>Write it all down (BRDs)</strong><p>Translated stakeholder chaos into structured <span style="color:var(--teal);font-weight:600;">Business Requirement Documents</span>. Think of this as being a translator between people who speak "business" and people who speak "tech" - two groups that, left alone, would argue forever.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">03</div>
+                <div class="modal-step-body"><strong>Make the journeys modular</strong><p>The entity journeys (Partnership, LLP, Company) were the hardest. Unlike individual accounts, these involved multiple customers - not everyone could always be present. So I designed <span style="color:var(--teal);font-weight:600;">modular journeys</span> where <span style="color:var(--teal);font-weight:600;">KYC</span> of available members could be completed first and resumed later. Think of it like a team relay - whoever's available runs their leg, and the baton stays alive.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">04</div>
+                <div class="modal-step-body"><strong>Hunt for APIs</strong><p>The integrations didn't exist - I had to find them. Explored <span style="color:var(--teal);font-weight:600;">fintech partners</span>, evaluated options, negotiated quotes, finalised legal agreements, and ensured successful integration. First time doing this at this scale. Steep learning curve, zero shortcuts.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">05</div>
+                <div class="modal-step-body"><strong>Build, break, fix, repeat</strong><p>Tracked development with IT, flagged issues early, and ran <span style="color:var(--teal);font-weight:600;">pilot launches</span> - putting the app in the hands of real sales reps and fixing problems in real time based on their feedback.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-section">
+            <h4>The Solution - What AU Ace Became</h4>
+            <p style="margin-bottom:12px;font-size:.88rem;color:var(--ink2);">By the time we shipped, AU Ace was a genuinely different product:</p>
+            <ul class="modal-highlight-list">
+              <li><span style="color:var(--teal);font-weight:600;">Fully digital document collection</span> - no more xerox safety nets</li>
+              <li><span style="color:var(--teal);font-weight:600;">Automated family grouping</span> - complex stakeholder-to-account mapping, handled by the system</li>
+              <li><span style="color:var(--teal);font-weight:600;">Geo-fencing</span> - accounts can only be opened at the customer's location. Compliance sorted</li>
+              <li><span style="color:var(--teal);font-weight:600;">Modular entity journeys</span> - multi-member KYCs don't need everyone present at once</li>
+              <li><span style="color:var(--teal);font-weight:600;">Cross-sell integration</span> - FD, Insurance, Credit cards and more woven into the onboarding journey</li>
+              <li><span style="color:var(--teal);font-weight:600;">Integrated CA + SA journeys</span> - for individual and sole prop customers, one seamless flow</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4>Impact</h4>
+            <ul>
+              <li>Complete overhaul of <span style="color:var(--teal);font-weight:600;">5 onboarding journeys</span>: Individual, Sole Props, Partnerships, LLPs and Companies</li>
+              <li>Adopted by a <span style="color:var(--teal);font-weight:600;">3500+ pan-India</span> sales team</li>
+              <li><span style="color:var(--teal);font-weight:600;">1.25 Lakh</span> accounts opened annually</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4>What I Learned</h4>
+            <ol class="modal-ol">
+              <li><span><strong style="color:var(--teal);">Being the only PM is a superpower and a trap.</strong> You move fast. You also carry everything. I learned to ruthlessly prioritise and let go of perfection in favour of progress.</span></li>
+              <li><span><strong style="color:var(--teal);">The best product decisions happen on the ground.</strong> Pilot launches taught me more in 2 weeks than months of planning. Ship early, fix fast.</span></li>
+            </ol>
+          </div>
+        `,
+      },
+      cs2: {
+        tag: 'Risk Architecture · AU Small Finance Bank · 2024',
+        title: 'First-of-its-Kind Preemptive Risk Categorization Model for Current Account Customers',
+        co: 'AU Small Finance Bank, Mumbai',
+        metrics: [
+          { val: '3 mo', lbl: 'Ideation to go-live' },
+          { val: 'Real-time', lbl: 'Fraud flagging' },
+          { val: 'First', lbl: 'Preemptive CA model' },
+        ],
+        richBody: `
+          <div class="modal-section">
+            <h4>Context in a Flash</h4>
+            <ul>
+              <li><strong>Product:</strong> Preemptive Risk Scoring Model - embedded within AU Ace's current account onboarding flow</li>
+              <li><strong>Role:</strong> <span style="color:var(--teal);font-weight:600;">Product Manager</span></li>
+              <li><strong>Trigger:</strong> A surge in current accounts flagged post-opening for <span style="color:var(--teal);font-weight:600;">money laundering and phishing scams</span></li>
+              <li><strong>Timeline:</strong> <span style="color:var(--teal);font-weight:600;">3 months</span>, ideation to go-live</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4>The Problem</h4>
+            <p>The bank was discovering fraud the worst possible way - <span style="color:var(--teal);font-weight:600;">after it happened</span>. Newly opened current accounts were increasingly being flagged by risk and compliance for money laundering and phishing scams. By then, the damage was done - accounts open, transactions complete, consequences absorbed. The onboarding process had no way to see it coming. It was <span style="color:var(--teal);font-weight:600;">reactive by design</span>, and that had to change.</p>
+          </div>
+          <div class="modal-section">
+            <h4>My Process</h4>
+            <div class="modal-steps">
+              <div class="modal-step">
+                <div class="modal-step-num">01</div>
+                <div class="modal-step-body"><strong>Find the signal in the data</strong><p>I started by mapping every field captured during onboarding and asking one question - could this predict fraud? I shortlisted the most relevant parameters and handed them to the data analytics team, who ran <span style="color:var(--teal);font-weight:600;">regressions against historically flagged accounts</span>. The result was a <span style="color:var(--teal);font-weight:600;">weighted scoring model</span> built on real patterns, not gut feel.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">02</div>
+                <div class="modal-step-body"><strong>Go beyond what we already had</strong><p>Internal data alone wasn't enough. I explored <span style="color:var(--teal);font-weight:600;">fintech partners</span> who could enrich customer profiles using just name, phone, and email - covering <span style="color:var(--teal);font-weight:600;">email/phone vintage, social media presence, and cross-platform identity linkages</span>. We piloted shortlisted partners, kept what was actually predictive, and cut the rest.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">03</div>
+                <div class="modal-step-body"><strong>Design the three-band system</strong><p>Not all risk looks the same - so instead of a binary pass/fail, I designed a three-band output:<br>🟢 Green - smooth sailing, proceed normally<br>🟡 Yellow - proceed with caution and branch manager approval<br>🔴 Red - journey blocked immediately</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">04</div>
+                <div class="modal-step-body"><strong>Build the Yellow Band process</strong><p>The yellow band was where the real product thinking lived - a flag without a next step is just noise. I defined a <span style="color:var(--teal);font-weight:600;">field verification checklist</span> for sales reps: business name board, witness confirmations, property type, employee count vs. declared turnover, and business locality. If the cues checked out, the account could proceed with <span style="color:var(--teal);font-weight:600;">branch manager sign-off</span>.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">05</div>
+                <div class="modal-step-body"><strong>Handle the Red Band with empathy</strong><p>Blocking a customer mid-journey is a <span style="color:var(--teal);font-weight:600;">delicate UX moment</span>. A blunt "you're flagged" would be offensive and legally risky. The messaging was crafted carefully - firm enough to stop the journey, human enough to not cause a scene. (Turns out, <span style="color:var(--teal);font-weight:600;">saying no politely is a product skill too</span>.)</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-section">
+            <h4>The Drama</h4>
+            <p>The challenge wasn't just building the model - it was <span style="color:var(--teal);font-weight:600;">calibrating it right</span>. Too sensitive and you're blocking legitimate customers. Too lenient and the fraud slips through anyway. The <span style="color:var(--teal);font-weight:600;">fintech partner pilots</span> were critical here - multiple rounds of testing to get the parameters and weights to a place where the model was <span style="color:var(--teal);font-weight:600;">sharp, not paranoid</span>.</p>
+          </div>
+          <div class="modal-section">
+            <h4>The Solution</h4>
+            <ul class="modal-highlight-list">
+              <li><span style="color:var(--teal);font-weight:600;">Real-time risk scoring</span> - triggered during onboarding, invisible to the customer</li>
+              <li style="white-space:nowrap;"><span style="color:var(--teal);font-weight:600;">Multi-source model</span> - internal onboarding data + external social &amp; credit signals from fintech partners</li>
+              <li><span style="color:var(--teal);font-weight:600;">Three-band risk output</span> - green, yellow, red with defined actions for each</li>
+              <li><span style="color:var(--teal);font-weight:600;">Structured yellow-band process</span> - field verification checklist + branch manager approval flow</li>
+              <li><span style="color:var(--teal);font-weight:600;">Empathetic red-band UX</span> - journey restriction with a customer-friendly message</li>
+              <li><span style="color:var(--teal);font-weight:600;">Sales rep empowerment</span> - reps now had data to back their instincts, not just override them</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4>Impact</h4>
+            <ul>
+              <li>Preemptive risk categorization model live within <span style="color:var(--teal);font-weight:600;">3 months</span> of ideation</li>
+              <li><span style="color:var(--teal);font-weight:600;">Real-time fraud flagging</span> embedded seamlessly into the AU Ace onboarding flow</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4>What I Learned</h4>
+            <ol class="modal-ol">
+              <li><span><strong>Fraud prevention is a design problem, not just a data problem.</strong> The model could score risk. But without a thoughtful UX - the pop-up, the <span style="color:var(--teal);font-weight:600;">yellow-band checklist</span>, the branch manager flow - the output would have been useless in the hands of a sales rep on the ground.</span></li>
+              <li><span><strong>Calibration beats complexity.</strong> A perfectly tuned simple model beats an over-engineered one. The <span style="color:var(--teal);font-weight:600;">pilot rounds with fintech partners</span> taught me that relentlessly.</span></li>
+            </ol>
+          </div>
+        `,
+      },
+      cs4: {
+        tag: 'Rural Inclusion · Axis Bank · 2021–23',
+        title: 'Last Mile: Biometric-First Banking',
+        co: 'Axis Bank, Mumbai',
+        metrics: [
+          { val: '10K+', lbl: 'Rural users enrolled' },
+          { val: '350%', lbl: 'NOA growth (SME)' },
+          { val: '₹3 Cr', lbl: 'Deposits in Q3 FY22' },
+        ],
+        richBody: `
+          <div class="modal-section">
+            <h4>Context in a Flash</h4>
+            <ul class="modal-highlight-list">
+              <li><strong>Product:</strong> <span style="color:var(--teal);font-weight:600;">Biometric-based Current Account Onboarding</span></li>
+              <li><strong>Role:</strong> <span style="color:var(--teal);font-weight:600;">Digital Product Owner</span></li>
+              <li><strong>Trigger:</strong> Expanding banking access to <span style="color:var(--teal);font-weight:600;">rural / low-connectivity users</span></li>
+              <li><strong>Timeline:</strong> <span style="color:var(--teal);font-weight:600;">~4-5 months</span></li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4>The Problem</h4>
+            <p>Digital onboarding works well - but mostly for people with good internet, better devices, and some comfort with apps. That wasn't our user. We were dealing with <span style="color:var(--teal);font-weight:600;">patchy networks, inconsistent devices</span>, and users who weren't used to digital journeys. Video KYC wasn't really an option - too dependent on connectivity and user behaviour. <span style="color:var(--teal);font-weight:600;">Biometric KYC made more sense</span>, but came with its own challenges: capturing fingerprints reliably, syncing data, and making sure the flow didn't break midway. Most journeys assumed things would go right. Here, things usually didn't.</p>
+          </div>
+          <div class="modal-section">
+            <h4>My Process</h4>
+            <div class="modal-steps">
+              <div class="modal-step">
+                <div class="modal-step-num">01</div>
+                <div class="modal-step-body"><strong>Rethink the model, not just the flow</strong><p>We moved away from a pure D2C approach and designed a <span style="color:var(--teal);font-weight:600;">quasi D2C setup</span>. Instead of branches, we used <span style="color:var(--teal);font-weight:600;">Business Correspondent (BC) centers</span> as assisted touchpoints - closer to the customer, but still digital.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">02</div>
+                <div class="modal-step-body"><strong>Shift from video to biometric KYC</strong><p>Given the environment, <span style="color:var(--teal);font-weight:600;">biometric KYC</span> was a better fit than video KYC. Less dependency on continuous internet, more structured, and easier to guide users through.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">03</div>
+                <div class="modal-step-body"><strong>Design for real-world conditions</strong><p>We knew networks would drop and devices wouldn't always cooperate. The focus was on <span style="color:var(--teal);font-weight:600;">resilience</span> - if something failed, it should retry or resume, not restart everything.</p></div>
+              </div>
+              <div class="modal-step">
+                <div class="modal-step-num">04</div>
+                <div class="modal-step-body"><strong>Keep it simple on the ground</strong><p>At BC centers, the experience had to be <span style="color:var(--teal);font-weight:600;">straightforward</span> - clear steps, minimal confusion, and no room for interpretation during biometric capture.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-section">
+            <h4>The Drama</h4>
+            <p>Things worked fine in controlled testing. Then we took it to the field. Flows that looked smooth in theory didn't always hold up. There was also a <span style="color:var(--teal);font-weight:600;">human layer</span> to this - users weren't just figuring out the process, they were deciding whether to <span style="color:var(--teal);font-weight:600;">trust it</span>. Without a branch or a familiar face, even small issues could break confidence. Balancing simplicity with compliance just made it more interesting.</p>
+          </div>
+          <div class="modal-section">
+            <h4>The Solution</h4>
+            <ul class="modal-highlight-list">
+              <li><span style="color:var(--teal);font-weight:600;">Biometric-based onboarding journey</span> tailored for low-connectivity environments</li>
+              <li><span style="color:var(--teal);font-weight:600;">Quasi D2C model</span> using BC centers instead of branches</li>
+              <li>Flows that could handle <span style="color:var(--teal);font-weight:600;">interruptions and retries</span> without breaking</li>
+              <li><span style="color:var(--teal);font-weight:600;">Simplified steps</span> for smoother biometric capture</li>
+              <li>Reduced dependency on <span style="color:var(--teal);font-weight:600;">real-time connectivity</span></li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4>Impact</h4>
+            <ul class="modal-highlight-list">
+              <li><span style="color:var(--teal);font-weight:600;">10,000+ users</span> onboarded in rural / low-network areas in the first quarter, post launch</li>
+              <li>Enabled account opening <span style="color:var(--teal);font-weight:600;">without branch visits</span></li>
+              <li>Improved <span style="color:var(--teal);font-weight:600;">completion rates</span> in conditions where journeys usually fail</li>
+              <li>Created a setup that could be <span style="color:var(--teal);font-weight:600;">scaled</span> across similar segments</li>
+            </ul>
+          </div>
+          <div class="modal-section">
+            <h4>What I Learned</h4>
+            <ol class="modal-ol">
+              <li><span><strong>If your product depends on <span style="color:var(--teal);font-weight:600;">perfect conditions</span>, it's going to <span style="color:var(--teal);font-weight:600;">fail in the real world</span>.</strong> Resilience isn't a nice-to-have - it's <span style="color:var(--teal);font-weight:600;">the product</span>.</span></li>
+              <li><span><strong>Sometimes the right solution isn't fully digital.</strong> A <span style="color:var(--teal);font-weight:600;">smart mix of digital + assisted</span> beats a pure D2C approach when the last mile is genuinely hard.</span></li>
+            </ol>
+          </div>
+        `,
+      },
+    };
+
+    window.openModal = function(key) {
+      const d = csData[key];
+      if (!d) return;
+
+      // Compute next key — auto-updates whenever csData changes
+      const keys = Object.keys(csData);
+      const nextKey = keys[(keys.indexOf(key) + 1) % keys.length];
+      const nextTitle = csData[nextKey].title;
+      const nextBtn = `
+        <div class="modal-next-wrap">
+          <button class="modal-next-btn" onclick="openModal('${nextKey}')">
+            Next Case Study
+            <span class="next-arrow">→</span>
+          </button>
+        </div>`;
+
+      const metricsHTML = `<div class="modal-metrics">${d.metrics.map(m => `<div class="modal-m"><div class="modal-m-val">${m.val}</div><div class="modal-m-lbl">${m.lbl}</div></div>`).join('')}</div>`;
+      let content;
+      if (d.richBody) {
+        content = `
+          <div class="modal-tag">${d.tag}</div>
+          <h2 class="modal-title">${d.title}</h2>
+          <p class="modal-co">${d.co}</p>
+          ${metricsHTML}
+          ${d.richBody}
+          ${nextBtn}
+        `;
+      } else {
+        content = `
+          <div class="modal-tag">${d.tag}</div>
+          <h2 class="modal-title">${d.title}</h2>
+          <p class="modal-co">${d.co}</p>
+          ${metricsHTML}
+          <div class="modal-section">
+            <h4>The Problem</h4>
+            <p>${d.problem}</p>
+          </div>
+          <div class="modal-section">
+            <h4>My Approach</h4>
+            <ul>${d.approach.map(a => `<li>${a}</li>`).join('')}</ul>
+          </div>
+          <div class="modal-section">
+            <h4>Impact</h4>
+            <ul>${d.impact.map(i => `<li>${i}</li>`).join('')}</ul>
+          </div>
+          ${nextBtn}
+        `;
+      }
+      document.getElementById('modal-content').innerHTML = content;
+      document.getElementById('modal').classList.add('open');
+      document.querySelector('.modal-box').scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeModal = function() {
+      document.getElementById('modal').classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    // Attach click to CS entries
+    document.querySelectorAll('.cs-entry[data-modal]').forEach(el => {
+      el.addEventListener('click', () => openModal(el.dataset.modal));
+    });
+
+    // ESC key closes modal
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    /* ── Photo Cycling - slide transition ── */
+    const photos = [
+      { src: './photo-ankit-snow.jpeg',  caption: 'Wingardium Leviosa!' },
+      { src: './photo-summit.JPG',   caption: 'India AI Impact Summit 2026 🌐' },
+      { src: './photo-surf.JPG',     caption: 'Surfing at Pondicherry Beach 🏄' },
+    ];
+    let photoIdx = 0;
+    const photoEl   = document.getElementById('cyclePhoto');
+    const captionEl = document.getElementById('photoCaption');
+    const dots      = [0,1,2].map(i => document.getElementById('dot'+i));
+
+    function setPhoto(idx, dir = 1) {
+      // dir: 1 = slide left (next), -1 = slide right (prev)
+      const outX = dir > 0 ? '-108%' : '108%';
+      const inX  = dir > 0 ?  '108%' : '-108%';
+
+      // Slide current out
+      photoEl.style.transition = 'transform .32s cubic-bezier(.4,0,.2,1), opacity .28s ease';
+      photoEl.style.transform  = `translateX(${outX})`;
+      photoEl.style.opacity    = '0';
+
+      setTimeout(() => {
+        // Swap content, snap new photo in from opposite side
+        photoEl.src = photos[idx].src;
+        captionEl.textContent = photos[idx].caption;
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+
+        photoEl.style.transition = 'none';
+        photoEl.style.transform  = `translateX(${inX})`;
+        photoEl.style.opacity    = '0';
+
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          photoEl.style.transition = 'transform .38s cubic-bezier(.25,.46,.45,.94), opacity .3s ease';
+          photoEl.style.transform  = 'translateX(0)';
+          photoEl.style.opacity    = '1';
+        }));
+      }, 300);
+    }
+
+    // Click to advance
+    document.getElementById('photoFrame').addEventListener('click', () => {
+      photoIdx = (photoIdx + 1) % photos.length;
+      setPhoto(photoIdx, 1);
+    });
+
+    // Auto-advance every 4 s
+    setInterval(() => {
+      photoIdx = (photoIdx + 1) % photos.length;
+      setPhoto(photoIdx, 1);
+    }, 4000);
+
+    /* ── Football Pitch - draggable players ── */
+    const pitchField = document.getElementById('pitchField');
+    if (pitchField) {
+      let dragging = null, startX, startY, startLeft, startTop;
+
+      pitchField.querySelectorAll('.player-icon').forEach(player => {
+        const onDown = (cx, cy) => {
+          dragging = player;
+          const r = pitchField.getBoundingClientRect();
+          startX    = cx;
+          startY    = cy;
+          startLeft = parseFloat(player.style.left);
+          startTop  = parseFloat(player.style.top);
+          player.style.zIndex = 20;
+          player.style.transition = 'none';
+        };
+        player.addEventListener('mousedown', e => { onDown(e.clientX, e.clientY); e.preventDefault(); });
+        player.addEventListener('touchstart', e => { const t=e.touches[0]; onDown(t.clientX, t.clientY); e.preventDefault(); }, { passive: false });
+      });
+
+      const onMove = (cx, cy) => {
+        if (!dragging) return;
+        const r  = pitchField.getBoundingClientRect();
+        const dx = (cx - startX) / r.width  * 100;
+        const dy = (cy - startY) / r.height * 100;
+        dragging.style.left = Math.max(2, Math.min(98, startLeft + dx)) + '%';
+        dragging.style.top  = Math.max(2, Math.min(98, startTop  + dy)) + '%';
+      };
+      const onUp = () => {
+        if (dragging) { dragging.style.zIndex = 10; dragging = null; }
+      };
+      document.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
+      document.addEventListener('mouseup',   onUp);
+      document.addEventListener('touchmove', e => { onMove(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); }, { passive: false });
+      document.addEventListener('touchend',  onUp);
+    }
+
+
+
+    /* ── Post-it: escape to new position on each hover ── */
+    const postit     = document.getElementById('postit');
+    const postitText = document.getElementById('postitText');
+    const postitHint = postit ? postit.querySelector('.postit-hint') : null;
+
+    if (postit && postitText) {
+      // Each step: where the note flies to + what it says
+      // Percentages are relative to .postit-arena (340px tall, full col wide)
+      // Post-it is 175px wide - keep left < ~55% so it stays in-bounds
+      const steps = [
+        { top:'30%', left:'20%', rotate:'-4deg',  text:"Catch me if\nyou can! 😏" },
+        { top:'6%',  left:'48%', rotate: '7deg',  text:"Oops, too\nslow! 🏃‍♂️"   },
+        { top:'58%', left:'6%',  rotate:'-8deg',  text:"Still here?\n😂"          },
+        { top:'5%',  left:'5%',  rotate: '5deg',  text:"Fine, check\nthe right 👉"},
+        { top:'52%', left:'44%', rotate:'-3deg',  text:"Ok ok, I give\nup 🤝"     },
+      ];
+      let stepIdx = 0;
+
+      const applyStep = (s, animate) => {
+        const tProp = 'top .52s cubic-bezier(.34,1.56,.64,1), left .52s cubic-bezier(.34,1.56,.64,1), transform .52s cubic-bezier(.34,1.56,.64,1)';
+        postit.style.transition = animate ? tProp : 'none';
+        postit.style.top       = s.top;
+        postit.style.left      = s.left;
+        postit.style.transform = `rotate(${s.rotate})`;
+        postitText.style.opacity = '0';
+        setTimeout(() => {
+          postitText.textContent   = s.text;
+          postitText.style.opacity = '1';
+        }, animate ? 220 : 0);
+      };
+
+      // Set initial position silently (no animation on load)
+      requestAnimationFrame(() => applyStep(steps[0], false));
+
+      postit.addEventListener('mouseenter', () => {
+        stepIdx = (stepIdx + 1) % steps.length;
+        applyStep(steps[stepIdx], true);
+        // Hide the "hover me" hint after first interaction
+        if (postitHint) postitHint.style.opacity = '0';
+      });
+    }
+
+    /* ── Fridge magnet subtle hover randomness ── */
+    document.querySelectorAll('.magnet').forEach(m => {
+      const rBase = (Math.random() - 0.5) * 12;
+      m.style.transform = `rotate(${rBase}deg)`;
+    });
+
+    /* ── Nav scroll shrink ── */
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 60) {
+        nav.style.boxShadow = '0 6px 32px rgba(0,0,0,0.22)';
+      } else {
+        nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.18)';
+      }
+    }, { passive: true });
+
+  })();
+  </script>
+
+</body>
+</html>
