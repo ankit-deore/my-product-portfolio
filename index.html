@@ -36,12 +36,13 @@
        RESET & BASE
     ═══════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
       color: var(--ink);
       overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
       line-height: 1.6;
     }
     ::selection { background: rgba(42,157,143,0.2); }
@@ -1537,16 +1538,16 @@
       .section-pad { padding: 80px 0; }
 
       /* HERO */
-      #hero { padding: 90px 16px 60px; min-height: auto; }
+      #hero { padding: 90px 16px 80px; min-height: 100svh; }
       .hero-inner { grid-template-columns: 1fr !important; gap: 24px; }
       .hero-photo-col { display: none; }
       .hero-sub { white-space: normal; font-size: .9rem; }
       .hero-tagline { font-size: 1.4rem; }
-      .hero-obj { display: none; }          /* hide floating images on mobile */
-      .hbb-box {
-        flex-wrap: wrap; gap: 8px;
-        padding: 10px 12px;
-      }
+      /* Floating hobby images — show at reduced size */
+      .hero-obj { display: block; opacity: 0.55; }
+      .hero-obj img { width: 44px !important; height: 44px !important;
+                      border-radius: 10px !important; }
+      .hbb-box { flex-wrap: wrap; gap: 8px; padding: 10px 12px; }
       .hbb-spacer { display: none; }
       .hbb-divider-v { display: none; }
       .hbb-btn { font-size: .8rem; padding: 8px 14px; }
@@ -1610,7 +1611,10 @@
         padding: 32px 20px 36px;
         max-height: 92vh;
         border-radius: 20px 20px 16px 16px;
+        overflow-x: hidden;       /* prevent horizontal bleed */
+        word-break: break-word;   /* force long text to wrap */
       }
+      .modal-box * { max-width: 100%; white-space: normal !important; }
       .modal-title { font-size: 1.3rem !important; }
       .modal-stats { flex-wrap: wrap; gap: 10px; }
       .modal-stat { min-width: calc(50% - 5px); }
@@ -1647,7 +1651,7 @@
       <li><a href="#journey">Experience</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="./resume-ankit-deore.pdf" target="_blank" class="nav-resume">Resume</a></li>
+      <li><a href="./resume-Ankit Deore-Prodman.pdf" target="_blank" class="nav-resume">Resume</a></li>
     </ul>
   </nav>
 
@@ -1691,7 +1695,7 @@
             </div>
             <div class="hbb-box">
               <a href="#case-studies" class="hbb-btn primary">View Case Studies →</a>
-              <a href="./resume-ankit-deore.pdf" target="_blank" class="hbb-btn secondary" style="margin-left:8px;">Resume ↗</a>
+              <a href="./resume-Ankit Deore-Prodman.pdf" target="_blank" class="hbb-btn secondary" style="margin-left:8px;">Resume ↗</a>
             </div>
           </div>
         </div>
@@ -2245,7 +2249,7 @@ you can! 😏</div>
                 <svg viewBox="0 0 24 24" fill="currentColor" style="color:#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.103 1.523 5.824L.057 23.215a.75.75 0 00.921.921l5.33-1.454A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.503-5.235-1.382l-.371-.214-3.862 1.053 1.077-3.755-.233-.387A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
                 WhatsApp me
               </a>
-              <a href="./resume-ankit-deore.pdf" target="_blank" class="c-link">
+              <a href="./resume-Ankit Deore-Prodman.pdf" target="_blank" class="c-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                 Download Resume
               </a>
@@ -2260,10 +2264,7 @@ you can! 😏</div>
   <!-- ═══════════════════════════════════════════════════
        FOOTER
   ═══════════════════════════════════════════════════ -->
-  <footer>
-    <div class="f-logo">Ankit<span>.</span>Deore</div>
-    <div>Product Manager & FinTech Architect · 2026</div>
-  </footer>
+  <footer></footer>
 
   <!-- ═══════════════════════════════════════════════════
        CASE STUDY MODALS
@@ -2321,7 +2322,7 @@ you can! 😏</div>
             <ul>
               <li><strong>Product:</strong> AU Ace - AU Small Finance Bank's fully digital customer onboarding app</li>
               <li><strong>Role:</strong> <span style="color:var(--teal);font-weight:600;">Solo PM</span> (yes, just me - no pressure)</li>
-              <li style="white-space:nowrap;"><strong>Scope:</strong> Ideated and Scaled 5 user journeys: <span style="color:var(--teal);font-weight:600;">Individuals, Sole Proprietors, Partnership, LLP &amp; Company</span></li>
+              <li><strong>Scope:</strong> Ideated and Scaled 5 user journeys: <span style="color:var(--teal);font-weight:600;">Individuals, Sole Proprietors, Partnership, LLP &amp; Company</span></li>
               <li><strong>Timeline:</strong> <span style="color:var(--teal);font-weight:600;">1 year</span>, ideation to delivery</li>
             </ul>
           </div>
@@ -2450,7 +2451,7 @@ you can! 😏</div>
             <h4>The Solution</h4>
             <ul class="modal-highlight-list">
               <li><span style="color:var(--teal);font-weight:600;">Real-time risk scoring</span> - triggered during onboarding, invisible to the customer</li>
-              <li style="white-space:nowrap;"><span style="color:var(--teal);font-weight:600;">Multi-source model</span> - internal onboarding data + external social &amp; credit signals from fintech partners</li>
+              <li><span style="color:var(--teal);font-weight:600;">Multi-source model</span> - internal onboarding data + external social &amp; credit signals from fintech partners</li>
               <li><span style="color:var(--teal);font-weight:600;">Three-band risk output</span> - green, yellow, red with defined actions for each</li>
               <li><span style="color:var(--teal);font-weight:600;">Structured yellow-band process</span> - field verification checklist + branch manager approval flow</li>
               <li><span style="color:var(--teal);font-weight:600;">Empathetic red-band UX</span> - journey restriction with a customer-friendly message</li>
