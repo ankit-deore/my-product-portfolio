@@ -5048,7 +5048,7 @@
         };
         document.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
         document.addEventListener('mouseup', onUp);
-        document.addEventListener('touchmove', e => { onMove(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); }, { passive: false });
+        // document.addEventListener('touchmove', e => { onMove(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); }, { passive: false });
         document.addEventListener('touchend', onUp);
       }
 
